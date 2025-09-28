@@ -1,4 +1,4 @@
-import { MarketPageClient } from "@/components/client/pages/MarketPageClient";
+import { MarketPageClient } from "@/src/components/client/MarketPageClient";
 
 // Mock data for the market page
 
