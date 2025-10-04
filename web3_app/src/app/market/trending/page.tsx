@@ -1,4 +1,4 @@
-import { TrendingPageClient } from "@/src/components/client/TrendingPageClient";
+import { TrendingPageClient } from "@/components/client/TrendingPageClient";
 import { Metadata } from "next";
 
 // Mock trending coins data

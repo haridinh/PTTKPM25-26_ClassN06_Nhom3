@@ -1,4 +1,4 @@
-import { SettingsPageClient } from "@/src/components/client/SettingsPageClient";
+import { SettingsPageClient } from "@/components/client/SettingsPageClient";
 
 export default function SettingsPage() {
   return <SettingsPageClient />;

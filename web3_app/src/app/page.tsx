@@ -1,6 +1,6 @@
 import React from "react";
-import HomeLayout from "@/src/components/layout/HomeLayout";
-import { HomePageClient } from "@/src/components/client/HomePageClient";
+import HomeLayout from "@/components/layout/HomeLayout";
+import { HomePageClient } from "@/components/client/HomePageClient";
 
 // Mock data - In a real app, this would come from your API
 

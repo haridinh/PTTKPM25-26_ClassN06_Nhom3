@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useAuth } from "@/src/hooks/useAuth";
+import { useAuth } from "@/hooks/useAuth";
 import { useTheme } from "next-themes";
 import {
   Card,
@@ -9,22 +9,22 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/src/components/ui/card";
-import { Button } from "@/src/components/ui/button";
-import { Input } from "@/src/components/ui/input";
-import { Label } from "@/src/components/ui/label";
-import { Separator } from "@/src/components/ui/separator";
-import { Switch } from "@/src/components/ui/switch";
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
+import { Switch } from "@/components/ui/switch";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/src/components/ui/select";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/src/components/ui/tabs";
-import { Avatar, AvatarFallback, AvatarImage } from "@/src/components/ui/avatar";
-import { LoadingSpinner } from "@/src/components/common/LoadingSpinner";
+} from "@/components/ui/select";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { LoadingSpinner } from "@/components/common/LoadingSpinner";
 import {
   User,
   Bell,
@@ -36,9 +36,9 @@ import {
   Upload,
 } from "lucide-react";
 import { toast } from "sonner";
-import { cn } from "@/src/lib/utils";
-import { Header } from "@/src/components/layout/Header";
-import Sidebar from "@/src/components/layout/Sidebar";
+import { cn } from "@/lib/utils";
+import { Header } from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
 
 const currencies = [
   { value: "USD", label: "US Dollar (USD)" },
@@ -142,7 +142,9 @@ export function SettingsPageClient() {
       <div className="container max-w-4xl mx-auto p-6">
         <Card>
           <CardContent className="p-6 text-center">
-            <h2 className="text-2xl font-bold mb-2">Yêu cầu Xác thực/Đăng nhập</h2>
+            <h2 className="text-2xl font-bold mb-2">
+              Yêu cầu Xác thực/Đăng nhập
+            </h2>
             <p className="text-muted-foreground">
               Vui lòng đăng nhập để truy cập cài đặt của bạn.
             </p>
@@ -481,7 +483,8 @@ export function SettingsPageClient() {
                   <CardHeader>
                     <CardTitle>Cài đặt Quyền riêng tư</CardTitle>
                     <CardDescription>
-                      Kiểm soát quyền riêng tư và các tùy chọn chia sẻ dữ liệu của bạn.
+                      Kiểm soát quyền riêng tư và các tùy chọn chia sẻ dữ liệu
+                      của bạn.
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
@@ -510,7 +513,8 @@ export function SettingsPageClient() {
                         <div>
                           <Label>Bật phân tích</Label>
                           <p className="text-sm text-muted-foreground">
-                            Giúp cải thiện dịch vụ bằng cách chia sẻ dữ liệu sử dụng.
+                            Giúp cải thiện dịch vụ bằng cách chia sẻ dữ liệu sử
+                            dụng.
                           </p>
                         </div>
                         <Switch

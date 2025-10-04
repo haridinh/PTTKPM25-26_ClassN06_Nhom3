@@ -1,4 +1,4 @@
-import EducationPageClient from "@/src/components/client/EducationPageClient";
+import EducationPageClient from "@/components/client/EducationPageClient";
 import React from "react";
 
 const Education = () => {

@@ -7,17 +7,17 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/src/components/ui/card";
-import { Button } from "@/src/components/ui/button";
-import { Input } from "@/src/components/ui/input";
-import { Badge } from "@/src/components/ui/badge";
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/src/components/ui/select";
+} from "@/components/ui/select";
 import {
   Dialog,
   DialogContent,
@@ -25,8 +25,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/src/components/ui/dialog";
-import { Label } from "@/src/components/ui/label";
+} from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
 import {
   Plus,
   TrendingUp,
@@ -39,8 +39,8 @@ import {
   Calendar,
   DollarSign,
 } from "lucide-react";
-import { Header } from "@/src/components/layout/Header";
-import Sidebar from "@/src/components/layout/Sidebar";
+import { Header } from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
 
 // Mock transaction data
 const mockTransactions = [
@@ -198,7 +198,8 @@ export default function TransactionsPageClient() {
               <div>
                 <h1 className="text-3xl font-bold">Lịch sử giao dịch</h1>
                 <p className="text-muted-foreground">
-                  Theo dõi và quản lý các giao dịch trong danh mục đầu tư của bạn.
+                  Theo dõi và quản lý các giao dịch trong danh mục đầu tư của
+                  bạn.
                 </p>
               </div>
               <div className="flex gap-2">
@@ -457,9 +458,7 @@ export default function TransactionsPageClient() {
             {/* Transaction List */}
             <Card>
               <CardHeader>
-                <CardTitle>
-                  Giao dịch ({filteredTransactions.length})
-                </CardTitle>
+                <CardTitle>Giao dịch ({filteredTransactions.length})</CardTitle>
                 <CardDescription>
                   Lịch sử giao dịch và hồ sơ giao dịch của bạn.
                 </CardDescription>

@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
-import { User } from "@/src/types/auth";
+import { User } from "@/types/auth";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -12,8 +12,8 @@ import {
   sendPasswordResetEmail,
   type User as FirebaseUser,
 } from "firebase/auth";
-import { auth } from "@/src/lib/firebase";
-import { AuthCookieManager } from "@/src/lib/auth-utils";
+import { auth } from "@/lib/firebase";
+import { AuthCookieManager } from "@/lib/auth-utils";
 
 // Helper function to convert Firebase User to our User type
 const convertFirebaseUser = (firebaseUser: FirebaseUser): User => ({

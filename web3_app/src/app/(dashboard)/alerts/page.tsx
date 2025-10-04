@@ -1,18 +1,18 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Card, CardContent } from "@/src/components/ui/card";
-import { Button } from "@/src/components/ui/button";
-import { Badge } from "@/src/components/ui/badge";
-import { Input } from "@/src/components/ui/input";
-import { Label } from "@/src/components/ui/label";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/src/components/ui/select";
+} from "@/components/ui/select";
 import {
   Dialog,
   DialogContent,
@@ -20,9 +20,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/src/components/ui/dialog";
-import { LoadingSpinner } from "@/src/components/common/LoadingSpinner";
-import { SearchBar } from "@/src/components/common/SearchBar";
+} from "@/components/ui/dialog";
+import { LoadingSpinner } from "@/components/common/LoadingSpinner";
+import { SearchBar } from "@/components/common/SearchBar";
 import {
   Plus,
   Bell,
@@ -42,10 +42,10 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/src/components/ui/dropdown-menu";
-import { Switch } from "@/src/components/ui/switch";
-import { Header } from "@/src/components/layout/Header";
-import Sidebar from "@/src/components/layout/Sidebar";
+} from "@/components/ui/dropdown-menu";
+import { Switch } from "@/components/ui/switch";
+import { Header } from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
 
 interface PriceAlert {
   id: string;
@@ -267,9 +267,13 @@ export default function AlertsPage() {
 
   const getStatusBadge = (alert: PriceAlert) => {
     if (alert.isTriggered)
-      return <Badge className="bg-green-100 text-green-800">Đã Kích hoạt</Badge>;
+      return (
+        <Badge className="bg-green-100 text-green-800">Đã Kích hoạt</Badge>
+      );
     if (alert.isActive)
-      return <Badge className="bg-blue-100 text-blue-800">Đang Hoạt động</Badge>;
+      return (
+        <Badge className="bg-blue-100 text-blue-800">Đang Hoạt động</Badge>
+      );
     return <Badge variant="secondary">Đã Vô hiệu hóa</Badge>;
   };
 
@@ -321,7 +325,8 @@ export default function AlertsPage() {
               <div>
                 <h1 className="text-4xl font-bold">Thông báo giá</h1>
                 <p className="text-muted-foreground">
-                  Nhận thông báo khi tiền điện tử của bạn đạt đến mức giá mục tiêu
+                  Nhận thông báo khi tiền điện tử của bạn đạt đến mức giá mục
+                  tiêu
                 </p>
               </div>
               <Dialog
@@ -338,7 +343,8 @@ export default function AlertsPage() {
                   <DialogHeader>
                     <DialogTitle>Tạo thông báo mới</DialogTitle>
                     <DialogDescription>
-                      Thiết lập cảnh báo giá để nhận thông báo khi một đồng tiền điện tử đạt đến mức giá mục tiêu của bạn
+                      Thiết lập cảnh báo giá để nhận thông báo khi một đồng tiền
+                      điện tử đạt đến mức giá mục tiêu của bạn
                     </DialogDescription>
                   </DialogHeader>
                   <div className="space-y-4">
@@ -378,7 +384,9 @@ export default function AlertsPage() {
                       </Select>
                     </div>
                     <div>
-                      <Label htmlFor="targetPrice">Mức giá Mục tiêu (USD)</Label>
+                      <Label htmlFor="targetPrice">
+                        Mức giá Mục tiêu (USD)
+                      </Label>
                       <Input
                         id="targetPrice"
                         type="number"
@@ -492,7 +500,9 @@ export default function AlertsPage() {
                   <div className="flex items-center space-x-2">
                     <Target className="h-6 w-6 text-green-500" />
                     <div>
-                      <p className="text-sm text-muted-foreground">Đang Hoạt động</p>
+                      <p className="text-sm text-muted-foreground">
+                        Đang Hoạt động
+                      </p>
                       <p className="text-2xl font-bold">{stats.active}</p>
                     </div>
                   </div>
@@ -504,7 +514,9 @@ export default function AlertsPage() {
                   <div className="flex items-center space-x-2">
                     <CheckCircle className="h-6 w-6 text-purple-500" />
                     <div>
-                      <p className="text-sm text-muted-foreground">Đã Kích hoạt</p>
+                      <p className="text-sm text-muted-foreground">
+                        Đã Kích hoạt
+                      </p>
                       <p className="text-2xl font-bold">{stats.triggered}</p>
                     </div>
                   </div>
@@ -516,7 +528,9 @@ export default function AlertsPage() {
                   <div className="flex items-center space-x-2">
                     <BellOff className="h-6 w-6 text-orange-500" />
                     <div>
-                      <p className="text-sm text-muted-foreground">Đã Vô hiệu hóa</p>
+                      <p className="text-sm text-muted-foreground">
+                        Đã Vô hiệu hóa
+                      </p>
                       <p className="text-2xl font-bold">{stats.disabled}</p>
                     </div>
                   </div>
@@ -565,8 +579,9 @@ export default function AlertsPage() {
                 {filteredAlerts.map((alert) => (
                   <Card
                     key={alert.id}
-                    className={`transition-shadow hover:shadow-md ${alert.isTriggered ? "border-green-200 " : ""
-                      }`}
+                    className={`transition-shadow hover:shadow-md ${
+                      alert.isTriggered ? "border-green-200 " : ""
+                    }`}
                   >
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between">
@@ -661,13 +676,16 @@ export default function AlertsPage() {
                       <div className="mt-4 pt-4 border-t flex items-center justify-between text-sm text-muted-foreground">
                         <div className="flex items-center space-x-2">
                           <Clock className="h-3 w-3" />
-                          <span>Thời gian Tạo: {formatDate(alert.createdAt)}</span>
+                          <span>
+                            Thời gian Tạo: {formatDate(alert.createdAt)}
+                          </span>
                         </div>
                         {alert.triggeredAt && (
                           <div className="flex items-center space-x-2">
                             <AlertTriangle className="h-3 w-3 text-green-500" />
                             <span>
-                              Thời gian Kích hoạt: {formatDate(alert.triggeredAt)}
+                              Thời gian Kích hoạt:{" "}
+                              {formatDate(alert.triggeredAt)}
                             </span>
                           </div>
                         )}

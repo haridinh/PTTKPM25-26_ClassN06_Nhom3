@@ -2,19 +2,19 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Header } from "@/src/components/layout/Header";
-import Sidebar from "@/src/components/layout/Sidebar";
+import { Header } from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/src/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/src/components/ui/tabs";
-import { Badge } from "@/src/components/ui/badge";
-import { Button } from "@/src/components/ui/button";
-import { Input } from "@/src/components/ui/input";
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { BookOpen, Clock, Star, Search, Play, Users } from "lucide-react";
 
 // Mock educational content

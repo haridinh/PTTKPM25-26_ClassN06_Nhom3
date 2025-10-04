@@ -1,4 +1,4 @@
-import { PortfolioPageClient } from "@/src/components/client/PortfolioPageClient";
+import { PortfolioPageClient } from "@/components/client/PortfolioPageClient";
 
 // Mock portfolio data
 const mockPortfolio = {
@@ -110,4 +110,3 @@ export default function PortfolioPage() {
     />
   );
 }
-

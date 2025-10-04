@@ -2,8 +2,8 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/src/hooks/useAuth";
-import { LoadingSpinner } from "@/src/components/common/LoadingSpinner";
+import { useAuth } from "@/hooks/useAuth";
+import { LoadingSpinner } from "@/components/common/LoadingSpinner";
 
 interface WithAuthOptions {
   redirectTo?: string;

@@ -4,8 +4,8 @@ import React from "react";
 import Link from "next/link";
 import { TrendingUp, Twitter, Github, Linkedin } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import { Button } from "@/src/components/ui/button";
-import { Input } from "@/src/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -59,7 +59,11 @@ export const Footer: React.FC = () => {
       href: "https://linkedin.com/company/binance",
       label: "LinkedIn",
     },
-    { icon: FaWhatsapp, href: "https://www.binance.com/en", label: "EWhatsAppmail" },
+    {
+      icon: FaWhatsapp,
+      href: "https://www.binance.com/en",
+      label: "EWhatsAppmail",
+    },
   ];
 
   return (
@@ -78,7 +82,9 @@ export const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-muted-foreground mb-6 max-w-sm">
-              Nền tảng toàn diện của bạn dành cho dữ liệu thị trường tiền mã hóa, quản lý danh mục đầu tư và tích hợp Web3. Theo dõi, phân tích và tối ưu hóa hành trình crypto của bạn.
+              Nền tảng toàn diện của bạn dành cho dữ liệu thị trường tiền mã
+              hóa, quản lý danh mục đầu tư và tích hợp Web3. Theo dõi, phân tích
+              và tối ưu hóa hành trình crypto của bạn.
             </p>
             <div className="flex space-x-2">
               {socialLinks.map((social) => (

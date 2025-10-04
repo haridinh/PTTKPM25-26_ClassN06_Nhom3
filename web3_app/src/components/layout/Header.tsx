@@ -14,7 +14,7 @@ import {
   Star,
   BarChart3,
 } from "lucide-react";
-import { Button } from "@/src/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,13 +22,13 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/src/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "@/src/components/ui/avatar";
-import { Badge } from "@/src/components/ui/badge";
-import { ThemeToggle } from "@/src/components/common/ThemeToggle";
-import { useAuth } from "@/src/hooks/useAuth";
+} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { ThemeToggle } from "@/components/common/ThemeToggle";
+import { useAuth } from "@/hooks/useAuth";
 import { toast } from "sonner";
-import Logo from "@/src/components/common/Logo";
+import Logo from "@/components/common/Logo";
 
 interface HeaderProps {
   variant?: "full" | "simplified";
@@ -258,10 +258,11 @@ export const Header: React.FC<HeaderProps> = ({
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${pathname === item.href
-                  ? "text-primary"
-                  : "text-muted-foreground"
-                  }`}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  pathname === item.href
+                    ? "text-primary"
+                    : "text-muted-foreground"
+                }`}
               >
                 {item.label}
               </Link>
@@ -284,7 +285,9 @@ export const Header: React.FC<HeaderProps> = ({
                 </Button>
                 <Button variant="ghost" size="sm" className="relative">
                   <Star className="h-4 w-4" />
-                  <span className="hidden sm:inline ml-1">Danh mục theo dõi</span>
+                  <span className="hidden sm:inline ml-1">
+                    Danh mục theo dõi
+                  </span>
                 </Button>
               </>
             )}

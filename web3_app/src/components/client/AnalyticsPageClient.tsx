@@ -1,18 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { Header } from "@/src/components/layout/Header";
-import Sidebar from "@/src/components/layout/Sidebar";
+import { Header } from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/src/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/src/components/ui/tabs";
-import { Badge } from "@/src/components/ui/badge";
-import { Button } from "@/src/components/ui/button";
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   TrendingUp,
   TrendingDown,
@@ -105,11 +105,18 @@ export default function AnalyticsPageClient() {
                 <div>
                   <h1 className="text-3xl font-bold">Phân tích nâng cao</h1>
                   <p className="text-muted-foreground">
-                    Phân tích kỹ thuật, các số liệu On-chain và tâm lý thị trường.
+                    Phân tích kỹ thuật, các số liệu On-chain và tâm lý thị
+                    trường.
                   </p>
                 </div>
                 <div className="flex gap-2">
-                  <Button variant="outline" size="sm" onClick={() => alert("Chức năng xuất dữ liệu đang phát triển.")}>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() =>
+                      alert("Chức năng xuất dữ liệu đang phát triển.")
+                    }
+                  >
                     <Download className="w-4 h-4 mr-2" />
                     Xuất dữ liệu
                   </Button>
@@ -154,7 +161,7 @@ export default function AnalyticsPageClient() {
                               <Badge
                                 variant={
                                   indicator.status === "bullish" ||
-                                    indicator.status === "above"
+                                  indicator.status === "above"
                                     ? "default"
                                     : "secondary"
                                 }
@@ -182,7 +189,8 @@ export default function AnalyticsPageClient() {
                         Các số liệu On-chain
                       </CardTitle>
                       <CardDescription>
-                        Phân tích hoạt động Blockchain và biến động của Cá voi (Whale).
+                        Phân tích hoạt động Blockchain và biến động của Cá voi
+                        (Whale).
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
@@ -204,10 +212,11 @@ export default function AnalyticsPageClient() {
                             </div>
                             <p className="text-2xl font-bold">{metric.value}</p>
                             <p
-                              className={`text-sm ${metric.trend === "up"
-                                ? "text-coingecko-green-600"
-                                : "text-red-600"
-                                }`}
+                              className={`text-sm ${
+                                metric.trend === "up"
+                                  ? "text-coingecko-green-600"
+                                  : "text-red-600"
+                              }`}
                             >
                               {metric.change}
                             </p>
@@ -285,12 +294,13 @@ export default function AnalyticsPageClient() {
                               </div>
                               <div className="flex items-center gap-2">
                                 <div
-                                  className={`w-3 h-3 rounded-full ${corr.correlation > 0.8
-                                    ? "bg-coingecko-green-500"
-                                    : corr.correlation > 0.6
-                                      ? "bg-yellow-500"
-                                      : "bg-red-500"
-                                    }`}
+                                  className={`w-3 h-3 rounded-full ${
+                                    corr.correlation > 0.8
+                                      ? "bg-coingecko-green-500"
+                                      : corr.correlation > 0.6
+                                        ? "bg-yellow-500"
+                                        : "bg-red-500"
+                                  }`}
                                 />
                                 <span className="font-mono text-sm">
                                   {corr.correlation.toFixed(2)}

@@ -15,15 +15,15 @@ import {
   BookOpen,
   X,
 } from "lucide-react";
-import { cn } from "@/src/lib/utils";
-import { Button } from "@/src/components/ui/button";
-import { Badge } from "@/src/components/ui/badge";
-import { ScrollArea } from "@/src/components/ui/scroll-area";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { Istok_Web } from "next/font/google";
 import { LuChartNoAxesCombined } from "react-icons/lu";
 import { CiSettings } from "react-icons/ci";
 
-/*import { WalletConnect } from "@/src/components/web3/WalletConnect";*/
+/*import { WalletConnect } from "@/components/web3/WalletConnect";*/
 
 interface NavigationItem {
   label: string;
@@ -88,7 +88,7 @@ const navigationItems: NavigationItem[] = [
     label: "Cài đặt",
     href: "/settings",
     icon: CiSettings,
-  }
+  },
 ];
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, className }) => {
@@ -218,7 +218,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, className }) => {
                 </div>
                 <div className="px-3 py-2 text-sm">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-muted-foreground">Vốn hóa Thị trường</span>
+                    <span className="text-muted-foreground">
+                      Vốn hóa Thị trường
+                    </span>
                     <span className="font-medium text-green-500">$2.1T</span>
                   </div>
                   <div className="flex justify-between items-center mb-2">

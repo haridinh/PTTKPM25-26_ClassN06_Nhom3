@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Header } from "@/src/components/layout/Header";
-import Sidebar from "@/src/components/layout/Sidebar";
-import { Card, CardContent } from "@/src/components/ui/card";
-import { Button } from "@/src/components/ui/button";
-import { Badge } from "@/src/components/ui/badge";
-import { Input } from "@/src/components/ui/input";
-import { Label } from "@/src/components/ui/label";
+import { Header } from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Dialog,
   DialogContent,
@@ -16,9 +16,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/src/components/ui/dialog";
-import { LoadingSpinner } from "@/src/components/common/LoadingSpinner";
-import { SearchBar } from "@/src/components/common/SearchBar";
+} from "@/components/ui/dialog";
+import { LoadingSpinner } from "@/components/common/LoadingSpinner";
+import { SearchBar } from "@/components/common/SearchBar";
 import {
   Plus,
   Star,
@@ -38,7 +38,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/src/components/ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 
 interface WatchlistCoin {
   id: string;
@@ -288,9 +288,9 @@ export default function WatchlistPageClient() {
     ) || 0;
   const avgChange24h = selectedWatchlist?.coins.length
     ? selectedWatchlist.coins.reduce(
-      (sum, coin) => sum + coin.price_change_percentage_24h,
-      0
-    ) / selectedWatchlist.coins.length
+        (sum, coin) => sum + coin.price_change_percentage_24h,
+        0
+      ) / selectedWatchlist.coins.length
     : 0;
 
   return (
@@ -317,7 +317,8 @@ export default function WatchlistPageClient() {
                     Danh sách theo dõi
                   </h1>
                   <p className="text-muted-foreground">
-                    Theo dõi các đồng tiền mã hóa yêu thích của bạn và tạo danh sách tùy chỉnh.
+                    Theo dõi các đồng tiền mã hóa yêu thích của bạn và tạo danh
+                    sách tùy chỉnh.
                   </p>
                 </div>
                 <Dialog
@@ -339,7 +340,8 @@ export default function WatchlistPageClient() {
                     <DialogHeader>
                       <DialogTitle>Tạo Danh sách theo dõi mới</DialogTitle>
                       <DialogDescription>
-                        Tạo một danh sách theo dõi tùy chỉnh để theo dõi các đồng tiền mã hóa cụ thể.
+                        Tạo một danh sách theo dõi tùy chỉnh để theo dõi các
+                        đồng tiền mã hóa cụ thể.
                       </DialogDescription>
                     </DialogHeader>
                     <div className="space-y-4">
@@ -353,9 +355,7 @@ export default function WatchlistPageClient() {
                         />
                       </div>
                       <div>
-                        <Label htmlFor="description">
-                          Mô tả (Tùy chọn)
-                        </Label>
+                        <Label htmlFor="description">Mô tả (Tùy chọn)</Label>
                         <Input
                           id="description"
                           value={newWatchlistDescription}
@@ -455,10 +455,11 @@ export default function WatchlistPageClient() {
                               Tổng số đồng tiền
                             </p>
                             <p
-                              className={`text-2xl font-bold ${avgChange24h >= 0
-                                ? "text-green-500"
-                                : "text-red-500"
-                                }`}
+                              className={`text-2xl font-bold ${
+                                avgChange24h >= 0
+                                  ? "text-green-500"
+                                  : "text-red-500"
+                              }`}
                             >
                               {avgChange24h.toFixed(2)}%
                             </p>
@@ -489,10 +490,14 @@ export default function WatchlistPageClient() {
                           Thay đổi 24h
                         </option>
                         <option value="market_cap">Thay đổi 24h</option>
-                        <option value="volume_24h">Khối lượng (Giao dịch)</option>
+                        <option value="volume_24h">
+                          Khối lượng (Giao dịch)
+                        </option>
                       </select>
-                      <Button variant="outline"
-                        onClick={() => alert("Chức năng xuất đang phát triển.")}>
+                      <Button
+                        variant="outline"
+                        onClick={() => alert("Chức năng xuất đang phát triển.")}
+                      >
                         <Download className="mr-2 h-4 w-4" />
                         Xuất
                       </Button>
@@ -582,10 +587,11 @@ export default function WatchlistPageClient() {
                                   </td>
                                   <td className="h-12 px-4 align-middle text-right">
                                     <span
-                                      className={`font-medium ${coin.price_change_percentage_24h >= 0
-                                        ? "text-green-500"
-                                        : "text-red-500"
-                                        }`}
+                                      className={`font-medium ${
+                                        coin.price_change_percentage_24h >= 0
+                                          ? "text-green-500"
+                                          : "text-red-500"
+                                      }`}
                                     >
                                       {coin.price_change_percentage_24h.toFixed(
                                         2
@@ -595,10 +601,11 @@ export default function WatchlistPageClient() {
                                   </td>
                                   <td className="h-12 px-4 align-middle text-right">
                                     <span
-                                      className={`font-medium ${coin.price_change_percentage_7d >= 0
-                                        ? "text-green-500"
-                                        : "text-red-500"
-                                        }`}
+                                      className={`font-medium ${
+                                        coin.price_change_percentage_7d >= 0
+                                          ? "text-green-500"
+                                          : "text-red-500"
+                                      }`}
                                     >
                                       {coin.price_change_percentage_7d.toFixed(
                                         2
@@ -675,7 +682,8 @@ export default function WatchlistPageClient() {
                           Không có đồng tiền nào trong danh sách theo dõi này.
                         </h3>
                         <p className="text-muted-foreground mb-4">
-                          Thêm một vài đồng tiền mã hóa để bắt đầu theo dõi hiệu suất của chúng.
+                          Thêm một vài đồng tiền mã hóa để bắt đầu theo dõi hiệu
+                          suất của chúng.
                         </p>
                         <Button>
                           <Plus className="mr-2 h-4 w-4" />

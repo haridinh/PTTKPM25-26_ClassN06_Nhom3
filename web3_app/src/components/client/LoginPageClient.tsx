@@ -9,14 +9,14 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/src/components/ui/card";
-import { Button } from "@/src/components/ui/button";
-import { Input } from "@/src/components/ui/input";
-import { Label } from "@/src/components/ui/label";
-import { Separator } from "@/src/components/ui/separator";
-import { useAuth } from "@/src/hooks/useAuth";
-import { LoadingSpinner } from "@/src/components/common/LoadingSpinner";
-import { withAuthRedirect } from "@/src/components/common/withAuth";
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
+import { useAuth } from "@/hooks/useAuth";
+import { LoadingSpinner } from "@/components/common/LoadingSpinner";
+import { withAuthRedirect } from "@/components/common/withAuth";
 import { Eye, EyeOff, Github, Mail } from "lucide-react";
 
 function LoginPageClientComponent() {
@@ -154,9 +154,7 @@ function LoginPageClientComponent() {
           </div>
 
           <div className="text-center text-sm">
-            <span className="text-muted-foreground">
-              Chưa có tài khoản?{" "}
-            </span>
+            <span className="text-muted-foreground">Chưa có tài khoản? </span>
             <Link
               href="/register"
               className="text-primary underline-offset-4 hover:underline"

@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import Sidebar from "@/src/components/layout/Sidebar";
-import { Card, CardContent } from "@/src/components/ui/card";
+import Sidebar from "@/components/layout/Sidebar";
+import { Card, CardContent } from "@/components/ui/card";
 
 import { TrendingUp, Flame, Users, BarChart3 } from "lucide-react";
 
-import { Header } from "@/src/components/layout/Header";
+import { Header } from "@/components/layout/Header";
 
 interface TrendingStats {
   totalTrending: number;

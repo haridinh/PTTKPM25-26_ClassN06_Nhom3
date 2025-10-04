@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useCallback } from "react";
-import { User } from "@/src/types/auth";
-import { useAuthStore } from "@/src/store/authStore";
+import { User } from "@/types/auth";
+import { useAuthStore } from "@/store/authStore";
 
 interface LoginCredentials {
   email: string;
@@ -46,7 +46,7 @@ export function useAuth(): AuthState & AuthActions {
     logout: storeLogout,
     updateProfile: storeUpdateProfile,
     resetPassword: storeResetPassword,
-    initializeAuth
+    initializeAuth,
   } = useAuthStore();
 
   const isAuthenticated = user !== null;
@@ -56,9 +56,12 @@ export function useAuth(): AuthState & AuthActions {
     initializeAuth();
   }, [initializeAuth]);
 
-  const login = useCallback(async (credentials: LoginCredentials) => {
-    await storeLogin(credentials.email, credentials.password);
-  }, [storeLogin]);
+  const login = useCallback(
+    async (credentials: LoginCredentials) => {
+      await storeLogin(credentials.email, credentials.password);
+    },
+    [storeLogin]
+  );
 
   const loginWithGoogle = useCallback(async () => {
     await storeLoginWithGoogle();
@@ -68,21 +71,34 @@ export function useAuth(): AuthState & AuthActions {
     await storeLoginWithGitHub();
   }, [storeLoginWithGitHub]);
 
-  const register = useCallback(async (credentials: RegisterCredentials) => {
-    await storeRegister(credentials.email, credentials.password, credentials.displayName);
-  }, [storeRegister]);
+  const register = useCallback(
+    async (credentials: RegisterCredentials) => {
+      await storeRegister(
+        credentials.email,
+        credentials.password,
+        credentials.displayName
+      );
+    },
+    [storeRegister]
+  );
 
   const logout = useCallback(async () => {
     await storeLogout();
   }, [storeLogout]);
 
-  const updateProfile = useCallback(async (updates: Partial<User>) => {
-    await storeUpdateProfile(updates);
-  }, [storeUpdateProfile]);
+  const updateProfile = useCallback(
+    async (updates: Partial<User>) => {
+      await storeUpdateProfile(updates);
+    },
+    [storeUpdateProfile]
+  );
 
-  const resetPassword = useCallback(async (email: string) => {
-    await storeResetPassword(email);
-  }, [storeResetPassword]);
+  const resetPassword = useCallback(
+    async (email: string) => {
+      await storeResetPassword(email);
+    },
+    [storeResetPassword]
+  );
 
   const clearError = useCallback(() => {
     setError(null);

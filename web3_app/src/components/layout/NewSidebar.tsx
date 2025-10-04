@@ -18,10 +18,10 @@ import {
   X,
   BookOpen,
 } from "lucide-react";
-import { cn } from "@/src/lib/utils";
-import { Button } from "@/src/components/ui/button";
-import { Badge } from "@/src/components/ui/badge";
-import { ScrollArea } from "@/src/components/ui/scroll-area";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface NavigationItem {
   label: string;

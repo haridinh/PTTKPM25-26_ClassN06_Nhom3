@@ -4,9 +4,9 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Button } from "@/src/components/ui/button";
-import { Input } from "@/src/components/ui/input";
-import { Label } from "@/src/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 import {
   Dialog,
@@ -15,10 +15,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/src/components/ui/dialog";
+} from "@/components/ui/dialog";
 import { Plus, Search, X, TrendingUp, TrendingDown } from "lucide-react";
 import Image from "next/image";
-import { cn } from "@/src/lib/utils";
+import { cn } from "@/lib/utils";
 
 const portfolioHoldingSchema = z.object({
   coinId: z.string().min(1, "Please select a coin"),

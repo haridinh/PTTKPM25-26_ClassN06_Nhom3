@@ -4,9 +4,9 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, Clock, ExternalLink, TrendingUp } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/src/components/ui/card";
-import { Button } from "@/src/components/ui/button";
-import { Badge } from "@/src/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 interface NewsArticle {
   id: string;
@@ -19,13 +19,13 @@ interface NewsArticle {
   sourceUrl: string;
   source: string;
   category:
-  | "bitcoin"
-  | "ethereum"
-  | "defi"
-  | "nft"
-  | "regulation"
-  | "market"
-  | "technology";
+    | "bitcoin"
+    | "ethereum"
+    | "defi"
+    | "nft"
+    | "regulation"
+    | "market"
+    | "technology";
   readTime: number;
   tags: string[];
 }

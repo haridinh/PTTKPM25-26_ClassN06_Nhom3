@@ -2,19 +2,19 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Header } from "@/src/components/layout/Header";
-import Sidebar from "@/src/components/layout/Sidebar";
-import { Button } from "@/src/components/ui/button";
-import { Badge } from "@/src/components/ui/badge";
-import { Label } from "@/src/components/ui/label";
-import { Input } from "@/src/components/ui/input";
+import { Header } from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/src/components/ui/select";
+} from "@/components/ui/select";
 import {
   Bell,
   TrendingUp,
@@ -33,18 +33,18 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/src/components/ui/dialog";
+} from "@/components/ui/dialog";
 
 interface Notification {
   id: string;
   type:
-  | "price_alert"
-  | "news"
-  | "portfolio"
-  | "system"
-  | "watchlist"
-  | "security"
-  | "social";
+    | "price_alert"
+    | "news"
+    | "portfolio"
+    | "system"
+    | "watchlist"
+    | "security"
+    | "social";
   title: string;
   description: string;
   timestamp: Date;
@@ -262,7 +262,8 @@ export default function NotificationsPage() {
                     )}
                   </h1>
                   <p className="text-muted-foreground mt-1">
-                    Luôn cập nhật thông tin về danh mục đầu tư crypto và biến động thị trường của bạn.
+                    Luôn cập nhật thông tin về danh mục đầu tư crypto và biến
+                    động thị trường của bạn.
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
@@ -280,7 +281,8 @@ export default function NotificationsPage() {
                       <DialogHeader>
                         <DialogTitle>Tạo cảnh báo giá</DialogTitle>
                         <DialogDescription>
-                          Nhận thông báo khi một đồng tiền mã hóa đạt đến mức giá mục tiêu của bạn.
+                          Nhận thông báo khi một đồng tiền mã hóa đạt đến mức
+                          giá mục tiêu của bạn.
                         </DialogDescription>
                       </DialogHeader>
                       <div className="space-y-4">

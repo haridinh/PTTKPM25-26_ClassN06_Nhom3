@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { Header } from "@/src/components/layout/Header";
-import Sidebar from "@/src/components/layout/Sidebar";
-import { Footer } from "@/src/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
+import { Footer } from "@/components/layout/Footer";
 
 interface DefaultLayoutProps {
   children: React.ReactNode;

@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { Header } from "@/src/components/layout/Header";
-import Sidebar from "@/src/components/layout/Sidebar";
-import { Card, CardContent, CardHeader, CardTitle } from "@/src/components/ui/card";
-import { Button } from "@/src/components/ui/button";
-import { Badge } from "@/src/components/ui/badge";
+import { Header } from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
   Smartphone,
   Monitor,
@@ -149,9 +149,14 @@ export default function ProductsPage() {
             <div className="space-y-8">
               {/* Header */}
               <div className="text-center">
-                <h1 className="text-4xl font-bold mb-4"> Sản phẩm của CoinGecko</h1>
+                <h1 className="text-4xl font-bold mb-4">
+                  {" "}
+                  Sản phẩm của CoinGecko
+                </h1>
                 <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Khám phá bộ công cụ và dịch vụ tiền mã hóa toàn diện của chúng tôi, được thiết kế để giúp bạn tự tin điều hướng thị trường crypto.
+                  Khám phá bộ công cụ và dịch vụ tiền mã hóa toàn diện của chúng
+                  tôi, được thiết kế để giúp bạn tự tin điều hướng thị trường
+                  crypto.
                 </p>
               </div>
               {/* Category Filter */}
@@ -217,7 +222,9 @@ export default function ProductsPage() {
 
                         {/* Features */}
                         <div className="space-y-2">
-                          <h4 className="font-medium text-sm">Các tính năng chính:</h4>
+                          <h4 className="font-medium text-sm">
+                            Các tính năng chính:
+                          </h4>
                           <ul className="space-y-1">
                             {product.features.slice(0, 3).map((feature) => (
                               <li
@@ -260,7 +267,8 @@ export default function ProductsPage() {
                   Bạn đã sẵn sàng bắt đầu chưa?
                 </h2>
                 <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                  Tham gia cùng hàng triệu người dùng đã tin tưởng CoinGecko cho nhu cầu dữ liệu và phân tích tiền mã hóa của họ.
+                  Tham gia cùng hàng triệu người dùng đã tin tưởng CoinGecko cho
+                  nhu cầu dữ liệu và phân tích tiền mã hóa của họ.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button

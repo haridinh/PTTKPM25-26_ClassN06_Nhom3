@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Header } from "./Header";
 import Sidebar from "./Sidebar";
-import { Footer } from "@/src/components/layout/Footer";
+import { Footer } from "@/components/layout/Footer";
 
 interface HomeLayoutProps {
   children: React.ReactNode;

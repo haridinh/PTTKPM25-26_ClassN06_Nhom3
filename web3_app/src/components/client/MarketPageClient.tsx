@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { Header } from "@/src/components/layout/Header";
-import Sidebar from "@/src/components/layout/Sidebar";
-import { SearchBar } from "@/src/components/common/SearchBar";
-import { Card, CardContent, CardHeader, CardTitle } from "@/src/components/ui/card";
-import { Badge } from "@/src/components/ui/badge";
+import { Header } from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
+import { SearchBar } from "@/components/common/SearchBar";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { TrendingUp, TrendingDown, Flame } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/src/components/ui/button";
+import { Button } from "@/components/ui/button";
 
 interface MockGlobalData {
   totalMarketCap: number;
@@ -53,9 +53,12 @@ export function MarketPageClient({ globalData }: MarketPageClientProps) {
               {/* Header */}
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                 <div>
-                  <h1 className="text-3xl font-bold">Thị trường tiền điện tử</h1>
+                  <h1 className="text-3xl font-bold">
+                    Thị trường tiền điện tử
+                  </h1>
                   <p className="text-muted-foreground mt-1">
-                    Theo dõi giá, vốn hóa thị trường và khối lượng giao dịch của các đồng tiền mã hóa hàng đầu.
+                    Theo dõi giá, vốn hóa thị trường và khối lượng giao dịch của
+                    các đồng tiền mã hóa hàng đầu.
                   </p>
                 </div>
                 <div className="flex items-center gap-4">
@@ -87,10 +90,11 @@ export function MarketPageClient({ globalData }: MarketPageClientProps) {
                         {formatLargeNumber(globalData.totalMarketCap)}
                       </span>
                       <div
-                        className={`flex items-center space-x-1 ${isMarketPositive
-                          ? "text-coingecko-green-600"
-                          : "text-red-600"
-                          }`}
+                        className={`flex items-center space-x-1 ${
+                          isMarketPositive
+                            ? "text-coingecko-green-600"
+                            : "text-red-600"
+                        }`}
                       >
                         {isMarketPositive ? (
                           <TrendingUp className="w-4 h-4" />

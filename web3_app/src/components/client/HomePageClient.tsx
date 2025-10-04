@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import { TrendingCoins } from "@/src/components/market/TrendingCoins";
-import { FeaturedNews } from "@/src/components/news/FeaturedNews";
-import { Card, CardContent, CardHeader, CardTitle } from "@/src/components/ui/card";
-import { Badge } from "@/src/components/ui/badge";
-import { Button } from "@/src/components/ui/button";
+import { TrendingCoins } from "@/components/market/TrendingCoins";
+import { FeaturedNews } from "@/components/news/FeaturedNews";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { TrendingUp, Star } from "lucide-react";
 
 interface MockTrendingCoin {
@@ -33,13 +33,13 @@ interface MockNewsArticle {
   sourceUrl: string;
   source: string;
   category:
-  | "bitcoin"
-  | "ethereum"
-  | "defi"
-  | "nft"
-  | "regulation"
-  | "market"
-  | "technology";
+    | "bitcoin"
+    | "ethereum"
+    | "defi"
+    | "nft"
+    | "regulation"
+    | "market"
+    | "technology";
   readTime: number;
   tags: string[];
 }

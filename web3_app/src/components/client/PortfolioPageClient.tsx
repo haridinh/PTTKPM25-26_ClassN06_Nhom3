@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Header } from "@/src/components/layout/Header";
-import Sidebar from "@/src/components/layout/Sidebar";
-import { PortfolioForm } from "@/src/components/forms/PortfolioForm";
-import { Card, CardContent, CardHeader, CardTitle } from "@/src/components/ui/card";
-import { Button } from "@/src/components/ui/button";
-import { Badge } from "@/src/components/ui/badge";
-import { withAuthRequired } from "@/src/components/common/withAuth";
+import { Header } from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
+import { PortfolioForm } from "@/components/forms/PortfolioForm";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { withAuthRequired } from "@/components/common/withAuth";
 import {
   Plus,
   Settings,
@@ -116,8 +116,9 @@ function PortfolioPageClientComponent({ portfolio }: PortfolioPageClientProps) {
                       {formatValue(portfolio.totalValue)}
                     </span>
                     <div
-                      className={`flex items-center space-x-1 ${isPositive ? "text-green-600" : "text-red-600"
-                        }`}
+                      className={`flex items-center space-x-1 ${
+                        isPositive ? "text-green-600" : "text-red-600"
+                      }`}
                     >
                       {isPositive ? (
                         <TrendingUp className="w-5 h-5" />
@@ -145,7 +146,9 @@ function PortfolioPageClientComponent({ portfolio }: PortfolioPageClientProps) {
                     trigger={
                       <Button className="flex-shrink-0">
                         <Plus className="w-4 h-4 mr-2" />
-                        <span className="hidden sm:inline">Thêm Khoản nắm giữ</span>
+                        <span className="hidden sm:inline">
+                          Thêm Khoản nắm giữ
+                        </span>
                         <span className="sm:hidden">Thêm</span>
                       </Button>
                     }
@@ -156,7 +159,7 @@ function PortfolioPageClientComponent({ portfolio }: PortfolioPageClientProps) {
                   </Button>
                   <Button variant="outline" className="flex-shrink-0">
                     <Download className="w-4 h-4 mr-2" />
-                    <span className="hidden sm:inline">	Xuất dữ liệu</span>
+                    <span className="hidden sm:inline"> Xuất dữ liệu</span>
                   </Button>
                 </div>
               </div>
@@ -170,10 +173,11 @@ function PortfolioPageClientComponent({ portfolio }: PortfolioPageClientProps) {
                   </CardHeader>
                   <CardContent>
                     <div
-                      className={`flex items-center space-x-1 ${portfolio.dayChange >= 0
-                        ? "text-green-600"
-                        : "text-red-600"
-                        }`}
+                      className={`flex items-center space-x-1 ${
+                        portfolio.dayChange >= 0
+                          ? "text-green-600"
+                          : "text-red-600"
+                      }`}
                     >
                       {portfolio.dayChange >= 0 ? (
                         <TrendingUp className="w-4 h-4" />
@@ -200,10 +204,11 @@ function PortfolioPageClientComponent({ portfolio }: PortfolioPageClientProps) {
                   </CardHeader>
                   <CardContent>
                     <div
-                      className={`flex items-center space-x-1 ${portfolio.weekChange >= 0
-                        ? "text-green-600"
-                        : "text-red-600"
-                        }`}
+                      className={`flex items-center space-x-1 ${
+                        portfolio.weekChange >= 0
+                          ? "text-green-600"
+                          : "text-red-600"
+                      }`}
                     >
                       {portfolio.weekChange >= 0 ? (
                         <TrendingUp className="w-4 h-4" />

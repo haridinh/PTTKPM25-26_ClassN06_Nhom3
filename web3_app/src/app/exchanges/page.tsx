@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Header } from "@/src/components/layout/Header";
-import Sidebar from "@/src/components/layout/Sidebar";
-import { Card, CardContent, CardHeader, CardTitle } from "@/src/components/ui/card";
-import { Button } from "@/src/components/ui/button";
-import { Badge } from "@/src/components/ui/badge";
-import { Input } from "@/src/components/ui/input";
+import { Header } from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
 import {
   Search,
   TrendingUp,
@@ -154,14 +154,18 @@ export default function ExchangesPage() {
                     Sàn giao dịch tiền mã hóa
                   </h1>
                   <p className="text-muted-foreground mt-2">
-                    So sánh và khám phá các sàn giao dịch tiền mã hóa tốt nhất trên toàn thế giới.
+                    So sánh và khám phá các sàn giao dịch tiền mã hóa tốt nhất
+                    trên toàn thế giới.
                   </p>
                 </div>
 
                 {/* Search */}
                 <div className="relative max-w-md">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                  <Input placeholder="Tìm kiếm sàn giao dịch..." className="pl-10" />
+                  <Input
+                    placeholder="Tìm kiếm sàn giao dịch..."
+                    className="pl-10"
+                  />
                 </div>
               </div>
               {/* Summary Stats */}
@@ -286,10 +290,11 @@ export default function ExchangesPage() {
                                 {formatVolume(exchange.volume24h)}
                               </div>
                               <div
-                                className={`text-xs flex items-center justify-center ${exchange.volumeChange24h >= 0
-                                  ? "text-green-600"
-                                  : "text-red-600"
-                                  }`}
+                                className={`text-xs flex items-center justify-center ${
+                                  exchange.volumeChange24h >= 0
+                                    ? "text-green-600"
+                                    : "text-red-600"
+                                }`}
                               >
                                 {exchange.volumeChange24h >= 0 ? (
                                   <TrendingUp className="w-3 h-3 mr-1" />

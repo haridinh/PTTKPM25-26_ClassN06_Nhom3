@@ -1,13 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Card, CardContent } from "@/src/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 
-import { LoadingSpinner } from "@/src/components/common/LoadingSpinner";
+import { LoadingSpinner } from "@/components/common/LoadingSpinner";
 
 import { Image as ImageIcon, Users, Star } from "lucide-react";
-import { Header } from "@/src/components/layout/Header";
-import Sidebar from "@/src/components/layout/Sidebar";
+import { Header } from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
 
 interface NFTCollection {
   id: string;
@@ -279,6 +279,45 @@ export default function NFTPage() {
                     </div>
                   </CardContent>
                 </Card>
+              </div>
+
+              {/* Danh sách NFT Collections */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredCollections.map((collection) => (
+                  <Card key={collection.id}>
+                    <CardContent>
+                      <img
+                        src={collection.image}
+                        alt={collection.name}
+                        className="w-full h-40 object-cover rounded"
+                      />
+                      <CardContent>{collection.name}</CardContent>
+                      <CardContent>{collection.description}</CardContent>
+                    </CardContent>
+
+                    <CardContent>
+                      <div className="space-y-1 text-sm">
+                        <p>
+                          <span className="font-medium">Floor Price:</span>{" "}
+                          {collection.floorPrice} ETH
+                        </p>
+                        <p>
+                          <span className="font-medium">Volume (24h):</span>{" "}
+                          {collection.volume24h} ETH
+                        </p>
+                        <p>
+                          <span className="font-medium">Holders:</span>{" "}
+                          {collection.holders}
+                        </p>
+                      </div>
+                    </CardContent>
+
+                    <CardContent className="justify-between text-xs text-muted-foreground">
+                      <span>Created: {collection.createdDate}</span>
+                      <span>{collection.marketplace.join(", ")}</span>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
             </div>
           </div>

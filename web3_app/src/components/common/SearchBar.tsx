@@ -3,12 +3,12 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Search, X, TrendingUp, TrendingDown, Clock } from "lucide-react";
-import { Input } from "@/src/components/ui/input";
-import { Button } from "@/src/components/ui/button";
-import { Badge } from "@/src/components/ui/badge";
-import { Card, CardContent } from "@/src/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-import { cn } from "@/src/lib/utils";
+import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 
 interface SearchResult {

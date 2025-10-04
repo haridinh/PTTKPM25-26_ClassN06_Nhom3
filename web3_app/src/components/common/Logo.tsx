@@ -1,4 +1,4 @@
-import { cn } from "@/src/lib/utils";
+import { cn } from "@/lib/utils";
 import { TrendingUp } from "lucide-react";
 import Link from "next/link";
 import React from "react";

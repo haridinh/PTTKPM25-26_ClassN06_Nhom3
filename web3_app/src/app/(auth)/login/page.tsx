@@ -1,4 +1,4 @@
-import { LoginPageClient } from "@/src/components/client/LoginPageClient";
+import { LoginPageClient } from "@/components/client/LoginPageClient";
 
 export default function LoginPage() {
   return <LoginPageClient />;

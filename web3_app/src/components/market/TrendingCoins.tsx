@@ -4,14 +4,14 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { TrendingUp, TrendingDown, Star, MoreHorizontal } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/src/components/ui/card";
-import { Button } from "@/src/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/src/components/ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 
 interface TrendingCoin {
   id: string;
@@ -189,10 +189,11 @@ export const TrendingCoins: React.FC<TrendingCoinsProps> = ({
                     <TrendingDown className="h-3 w-3 text-red-500" />
                   )}
                   <span
-                    className={`text-xs font-medium ${coin.priceChangePercentage24h >= 0
-                      ? "text-coingecko-green-500"
-                      : "text-red-500"
-                      }`}
+                    className={`text-xs font-medium ${
+                      coin.priceChangePercentage24h >= 0
+                        ? "text-coingecko-green-500"
+                        : "text-red-500"
+                    }`}
                   >
                     {formatPercentage(coin.priceChangePercentage24h)}
                   </span>

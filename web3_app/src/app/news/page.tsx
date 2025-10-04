@@ -2,20 +2,20 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Header } from "@/src/components/layout/Header";
-import Sidebar from "@/src/components/layout/Sidebar";
+import { Header } from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/src/components/ui/card";
-import { Button } from "@/src/components/ui/button";
-import { Badge } from "@/src/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/src/components/ui/tabs";
-import { LoadingSpinner } from "@/src/components/common/LoadingSpinner";
-import { SearchBar } from "@/src/components/common/SearchBar";
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { LoadingSpinner } from "@/components/common/LoadingSpinner";
+import { SearchBar } from "@/components/common/SearchBar";
 import {
   Clock,
   TrendingUp,
@@ -313,7 +313,8 @@ export default function NewsPage() {
                   <div>
                     <h1 className="text-4xl font-bold">Tin tức Tiền mã hóa</h1>
                     <p className="text-muted-foreground">
-                      Cập nhật những tin tức tiền mã hóa mới nhất và thông tin chi tiết về thị trường.
+                      Cập nhật những tin tức tiền mã hóa mới nhất và thông tin
+                      chi tiết về thị trường.
                     </p>
                   </div>
                 </div>
@@ -478,8 +479,9 @@ export default function NewsPage() {
                               className="ml-2 shrink-0"
                             >
                               <Bookmark
-                                className={`h-4 w-4 ${article.isBookmarked ? "fill-current" : ""
-                                  }`}
+                                className={`h-4 w-4 ${
+                                  article.isBookmarked ? "fill-current" : ""
+                                }`}
                               />
                             </Button>
                           </div>
@@ -556,7 +558,8 @@ export default function NewsPage() {
                       Các bài viết xu hướng
                     </h3>
                     <p className="text-muted-foreground">
-                      Sắp ra mắt - các bài viết xu hướng dựa trên mức độ tương tác.
+                      Sắp ra mắt - các bài viết xu hướng dựa trên mức độ tương
+                      tác.
                     </p>
                   </div>
                 </TabsContent>
@@ -568,7 +571,8 @@ export default function NewsPage() {
                       Phân tích Thị trường
                     </h3>
                     <p className="text-muted-foreground">
-                      Sắp ra mắt - các báo cáo và phân tích thị trường chuyên sâu.
+                      Sắp ra mắt - các báo cáo và phân tích thị trường chuyên
+                      sâu.
                     </p>
                   </div>
                 </TabsContent>
@@ -605,23 +609,24 @@ export default function NewsPage() {
                   </div>
                   {filteredArticles.filter((article) => article.isBookmarked)
                     .length === 0 && (
-                      <div className="text-center py-12">
-                        <Bookmark className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
-                        <h3 className="text-lg font-semibold mb-2">
-                          No Bookmarks
-                        </h3>
-                        <p className="text-muted-foreground">
-                          Hãy bắt đầu đánh dấu các bài viết để xem chúng tại đây.
-                        </p>
-                      </div>
-                    )}
+                    <div className="text-center py-12">
+                      <Bookmark className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
+                      <h3 className="text-lg font-semibold mb-2">
+                        No Bookmarks
+                      </h3>
+                      <p className="text-muted-foreground">
+                        Hãy bắt đầu đánh dấu các bài viết để xem chúng tại đây.
+                      </p>
+                    </div>
+                  )}
                 </TabsContent>
               </Tabs>
 
               {filteredArticles.length === 0 && (
                 <div className="text-center py-12">
                   <p className="text-muted-foreground">
-                    Không tìm thấy bài viết nào khớp với tiêu chí (hoặc điều kiện) của bạn.
+                    Không tìm thấy bài viết nào khớp với tiêu chí (hoặc điều
+                    kiện) của bạn.
                   </p>
                 </div>
               )}

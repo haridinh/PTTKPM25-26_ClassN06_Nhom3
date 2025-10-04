@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { Header } from "@/src/components/layout/Header";
+import { Header } from "@/components/layout/Header";
 import { useState } from "react";
 
 interface ConditionalLayoutProps {

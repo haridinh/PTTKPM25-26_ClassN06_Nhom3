@@ -2,11 +2,11 @@
 
 import React, { useEffect, useMemo, useRef } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ThemeProvider } from "@/src/components/theme-provider";
+import { ThemeProvider } from "@/components/theme-provider";
 import { WagmiProvider } from "wagmi";
 import { ConnectKitProvider } from "connectkit";
-import { wagmiConfig } from "@/src/lib/wagmi";
-import { useAuthStore } from "@/src/store/authStore";
+import { wagmiConfig } from "@/lib/wagmi";
+import { useAuthStore } from "@/store/authStore";
 
 // Create QueryClient with memoization to prevent recreation
 const createQueryClient = () =>

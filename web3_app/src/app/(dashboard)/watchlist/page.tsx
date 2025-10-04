@@ -1,4 +1,4 @@
-import WatchlistPageClient from "@/src/components/client/WatchlistPageClient";
+import WatchlistPageClient from "@/components/client/WatchlistPageClient";
 
 export default function WatchlistPage() {
   return <WatchlistPageClient />;

@@ -1,13 +1,13 @@
 "use client";
 
-import { Card, CardContent, CardHeader } from "@/src/components/ui/card";
-import { Badge } from "@/src/components/ui/badge";
-import { Button } from "@/src/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { TrendingUp, TrendingDown, Star, Plus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { cn } from "@/src/lib/utils";
-import { CoinData } from "@/src/types/market";
+import { cn } from "@/lib/utils";
+import { CoinData } from "@/types/market";
 
 interface CoinCardProps {
   coin: CoinData;

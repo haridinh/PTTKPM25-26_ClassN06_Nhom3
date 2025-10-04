@@ -9,16 +9,16 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/src/components/ui/card";
-import { Button } from "@/src/components/ui/button";
-import { Input } from "@/src/components/ui/input";
-import { Label } from "@/src/components/ui/label";
-import { Separator } from "@/src/components/ui/separator";
-import { useAuth } from "@/src/hooks/useAuth";
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
+import { useAuth } from "@/hooks/useAuth";
 import {
   AuthButtonLoader,
   AuthOverlayLoader,
-} from "@/src/components/common/AuthLoader";
+} from "@/components/common/AuthLoader";
 import { Eye, EyeOff, Github, Mail, Check } from "lucide-react";
 import { toast } from "sonner";
 
@@ -230,10 +230,11 @@ export function RegisterPageClient() {
                       {[...Array(5)].map((_, i) => (
                         <div
                           key={i}
-                          className={`h-1 w-full rounded ${i < passwordStrength
-                            ? getStrengthColor(passwordStrength)
-                            : "bg-gray-200"
-                            }`}
+                          className={`h-1 w-full rounded ${
+                            i < passwordStrength
+                              ? getStrengthColor(passwordStrength)
+                              : "bg-gray-200"
+                          }`}
                         />
                       ))}
                     </div>
@@ -346,9 +347,7 @@ export function RegisterPageClient() {
             </div>
 
             <div className="text-center text-sm">
-              <span className="text-muted-foreground">
-                Đã có tài khoản?{" "}
-              </span>
+              <span className="text-muted-foreground">Đã có tài khoản? </span>
               <Link
                 href="/login"
                 className="text-primary underline-offset-4 hover:underline"

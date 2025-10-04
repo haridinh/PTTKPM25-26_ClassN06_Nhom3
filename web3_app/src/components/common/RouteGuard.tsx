@@ -2,9 +2,9 @@
 
 import { useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import { useAuth } from "@/src/hooks/useAuth";
-import { LoadingSpinner } from "@/src/components/common/LoadingSpinner";
-import { isProtectedRoute, isAuthRoute } from "@/src/lib/auth-utils";
+import { useAuth } from "@/hooks/useAuth";
+import { LoadingSpinner } from "@/components/common/LoadingSpinner";
+import { isProtectedRoute, isAuthRoute } from "@/lib/auth-utils";
 
 interface RouteGuardProps {
   children: React.ReactNode;

@@ -1,4 +1,4 @@
-import { User } from "@/src/types/auth";
+import { User } from "@/types/auth";
 
 // Cookie names
 export const AUTH_COOKIES = {
@@ -29,18 +29,23 @@ export class AuthCookieManager {
     };
 
     // Set cookies that middleware can read
-    document.cookie = `${AUTH_COOKIES.TOKEN}=${token}; path=/; max-age=${COOKIE_OPTIONS.maxAge
-      }; ${COOKIE_OPTIONS.secure ? "secure;" : ""} samesite=${COOKIE_OPTIONS.sameSite
-      }`;
+    document.cookie = `${AUTH_COOKIES.TOKEN}=${token}; path=/; max-age=${
+      COOKIE_OPTIONS.maxAge
+    }; ${COOKIE_OPTIONS.secure ? "secure;" : ""} samesite=${
+      COOKIE_OPTIONS.sameSite
+    }`;
     document.cookie = `${AUTH_COOKIES.USER_SESSION}=${encodeURIComponent(
       JSON.stringify(userSession)
-    )}; path=/; max-age=${COOKIE_OPTIONS.maxAge}; ${COOKIE_OPTIONS.secure ? "secure;" : ""
-      } samesite=${COOKIE_OPTIONS.sameSite}`;
+    )}; path=/; max-age=${COOKIE_OPTIONS.maxAge}; ${
+      COOKIE_OPTIONS.secure ? "secure;" : ""
+    } samesite=${COOKIE_OPTIONS.sameSite}`;
 
     if (refreshToken) {
-      document.cookie = `${AUTH_COOKIES.REFRESH_TOKEN
-        }=${refreshToken}; path=/; max-age=${COOKIE_OPTIONS.maxAge}; ${COOKIE_OPTIONS.secure ? "secure;" : ""
-        } samesite=${COOKIE_OPTIONS.sameSite}`;
+      document.cookie = `${
+        AUTH_COOKIES.REFRESH_TOKEN
+      }=${refreshToken}; path=/; max-age=${COOKIE_OPTIONS.maxAge}; ${
+        COOKIE_OPTIONS.secure ? "secure;" : ""
+      } samesite=${COOKIE_OPTIONS.sameSite}`;
     }
   }
 
@@ -68,11 +73,14 @@ export class AuthCookieManager {
     }
 
     try {
-      const cookies = document.cookie.split(";").reduce((acc, cookie) => {
-        const [key, value] = cookie.trim().split("=");
-        acc[key] = value;
-        return acc;
-      }, {} as Record<string, string>);
+      const cookies = document.cookie.split(";").reduce(
+        (acc, cookie) => {
+          const [key, value] = cookie.trim().split("=");
+          acc[key] = value;
+          return acc;
+        },
+        {} as Record<string, string>
+      );
 
       const userSessionCookie = cookies[AUTH_COOKIES.USER_SESSION];
       const authToken = cookies[AUTH_COOKIES.TOKEN];

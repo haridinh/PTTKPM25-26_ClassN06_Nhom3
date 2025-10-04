@@ -13,10 +13,10 @@ import {
   AreaChart,
   TooltipProps,
 } from "recharts";
-import { Card, CardContent, CardHeader, CardTitle } from "@/src/components/ui/card";
-import { Button } from "@/src/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { TrendingUp, TrendingDown } from "lucide-react";
-import { cn } from "@/src/lib/utils";
+import { cn } from "@/lib/utils";
 
 interface PriceData {
   timestamp: number;
