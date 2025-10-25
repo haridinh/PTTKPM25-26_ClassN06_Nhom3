@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Enums\AuthGuardEnum;
 use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
@@ -17,14 +18,16 @@ class RedirectIfAuthenticated
      */
     public function handle(Request $request, Closure $next, string ...$guards): Response
     {
-        $guards = empty($guards) ? [null] : $guards;
 
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
-            }
+        if (Auth::guard(AuthGuardEnum::CUSTOMER->value)->check()) {
+            return redirect(AuthGuardEnum::CUSTOMER_HOME->value);
+        }
+
+        if (Auth::guard(AuthGuardEnum::ADMIN->value)->check()) {
+            return redirect(RouteServiceProvider::HOME);
         }
 
         return $next($request);
     }
+
 }
