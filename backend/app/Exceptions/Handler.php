@@ -3,6 +3,8 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -27,4 +29,38 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    /**
+     * Register the exception handling callbacks for the application.
+     */
+    public function render($request, Throwable $exception)
+    {
+
+        if ($exception instanceof MethodNotAllowedHttpException) {
+
+            if ($request->ajax() || $request->is('api/*')) {
+                return response()->json([
+                    'success' => 'failed',
+                    'title'   => localize('Method Not Allowed'),
+                    'message' => $exception->getMessage(),
+                ], 405);
+            }
+
+        }
+
+        if ($exception instanceof NotFoundHttpException) {
+
+            if ($request->ajax() || $request->is('api/*')) {
+                return response()->json([
+                    'success' => 'failed',
+                    'title'   => localize('Invalid url'),
+                    'message' => $exception->getMessage(),
+                ], 404);
+            }
+
+        }
+
+        return parent::render($request, $exception);
+    }
+
 }
