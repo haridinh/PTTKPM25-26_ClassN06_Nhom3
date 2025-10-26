@@ -1,0 +1,22 @@
+:root {
+  --brandPrimary: #dd5328;
+  --scrollBarColor: #023e8a;
+  --dardBlue2: #0c203b;
+  --dardBlue3: #001025;
+  --white: #fff;
+  --bgTransparent: rgba(255, 255, 255, 0);
+}
+@import "swiperPagination";
+@import "scrollDown";
+@import "loadingPage";
+@import "btnBorderAnimation";
+@import "arrowAnimation";
+@import "bgStyle";
+@import "borderStyle";
+@import "buttonStyle";
+@import "accordion";
+// @import "customAccordion";
+@import "customAccordion2";
+@import "smoothSlider";
+@import "scrollToTopButton";
+@import "spinnerLoader";

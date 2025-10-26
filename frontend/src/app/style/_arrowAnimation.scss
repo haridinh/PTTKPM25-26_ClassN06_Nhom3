@@ -1,0 +1,78 @@
+.btn_custom {
+  .btn_arrow {
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-width: 3px 3px 0 0;
+      border-style: solid;
+      border-color: #0d85b8;
+      transition: 0.2s ease;
+      display: block;
+      transform-origin: 100% 0;
+    }
+
+    &:after {
+      content: "";
+      float: left;
+      position: relative;
+      top: -100%;
+      width: 100%;
+      height: 100%;
+      border-width: 0 3px 0 0;
+      border-style: solid;
+      border-color: #0d85b8;
+      transform-origin: 100% 0;
+      transition: 0.2s ease;
+    }
+  }
+  &:hover .btn_arrow::after {
+    transform: rotate(45deg) translateX(1.5px) translateY(2px);
+    border-color: orange;
+    height: 150%;
+  }
+  &:hover .btn_arrow::before {
+    border-color: orange;
+    transform: scale(0.9);
+  }
+}
+
+/* Button Click Repple effect */
+.effect_container {
+  position: relative;
+  overflow: hidden;
+  --effect-name: ripple;
+  --effect-duration: 1000ms;
+  --effect-top: 0;
+  --effect-left: 0;
+  --effect-width: 100px;
+  --effect-height: 100px;
+  --effect-color: white;
+
+  &::before {
+    content: "";
+    position: absolute;
+    opacity: 0.3;
+
+    top: var(--effect-top);
+    left: var(--effect-left);
+    width: var(--effect-width);
+    height: var(--effect-height);
+    border-radius: 50%;
+    transform: scale(0);
+    background: var(--effect-color);
+  }
+}
+.effect_container.active::before {
+  border-radius: 50%;
+  animation: ripple var(--effect-duration) linear forwards;
+}
+@keyframes ripple {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(6);
+    opacity: 0;
+  }
+}

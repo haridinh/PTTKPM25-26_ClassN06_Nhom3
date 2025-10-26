@@ -1,0 +1,21 @@
+<svg
+                      className="w-6 h-6 md:w-10 md:h-10"
+                      viewBox="0 0 44 44"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M32.6066 22H11.3934"
+                        stroke="#FF5733"
+                        strokeWidth="1.875"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M22 11.3934V32.6066"
+                        stroke="#FF5733"
+                        strokeWidth="1.875"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>

@@ -1,0 +1,159 @@
+.btn_secondary {
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  display: inline-block;
+  font: bold 18px sans-serif;
+  background: #fd7c2a;
+  text-decoration: none;
+  transition: background 1s;
+  &:hover {
+    background: #3cc16e;
+  }
+}
+
+.btn_primary {
+  display: inline-block;
+  --bluePrimary: #1549ff;
+  --blueSecondary: #0194fe;
+  --cyanPrimary: #086bad;
+  --cyanSecondary: #36b5d1;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 0.75rem;
+  padding: 12px 24px;
+  background-image: linear-gradient(
+    to right,
+    var(--blueSecondary),
+    var(--bluePrimary),
+    var(--cyanSecondary),
+    var(--cyanPrimary)
+  );
+
+  background-size: 300%;
+  background-position: left;
+  text-decoration: none;
+  transition: 0.5s background-position ease-in-out;
+  &:hover {
+    background-position: right;
+  }
+}
+.btn_primary_active {
+  display: inline-block;
+  --bluePrimary: #1549ff;
+  --blueSecondary: #0194fe;
+  --cyanPrimary: #086bad;
+  --cyanSecondary: #36b5d1;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 0.75rem;
+  padding: 12px 24px;
+  background-image: linear-gradient(
+    to right,
+    var(--blueSecondary),
+    var(--bluePrimary),
+    var(--cyanSecondary),
+    var(--cyanPrimary)
+  );
+
+  background-size: 300%;
+  background-position: right;
+  text-decoration: none;
+  transition: 0.5s background-position ease-in-out;
+}
+.btn_primary_outline {
+  display: inline-block;
+  --bluePrimary: #1549ff;
+  --blueSecondary: #0194fe;
+  --cyanPrimary: #086bad;
+  --cyanSecondary: #36b5d1;
+  --darkBlue2: #0c203b;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 0.75rem;
+  padding: 8px 16px;
+  border: 1px solid var(--blueSecondary);
+  transition: 0.5s all ease-in-out;
+
+  background-size: 300%;
+  background-position: left;
+  text-decoration: none;
+  transition: 0.5s background-position ease-in-out;
+
+  &:hover {
+    // background-color: var(--cyanPrimary);
+    border-color: var(--darkBlue2);
+    background-image: linear-gradient(
+      to right,
+      var(--blueSecondary),
+      var(--bluePrimary),
+      var(--cyanSecondary),
+      var(--cyanPrimary)
+    );
+    background-position: right;
+  }
+}
+
+.btn_primary_outline_active {
+  --bluePrimary: #1549ff;
+  --blueSecondary: #0194fe;
+  --cyanPrimary: #086bad;
+  --cyanSecondary: #36b5d1;
+  --darkBlue2: #0c203b;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 0.75rem;
+  padding: 8px 16px;
+  border: 1px solid var(--darkBlue2);
+  transition: 0.5s all ease-in-out;
+  // background-color: var(--cyanPrimary);
+  background-image: linear-gradient(
+    to right,
+    var(--blueSecondary),
+    var(--bluePrimary),
+    var(--cyanSecondary),
+    var(--cyanPrimary)
+  );
+  background-position: right;
+}
+
+.btn_test {
+  --bluePrimary: #1549ff;
+  --blueSecondary: #0194fe;
+  --cyanPrimary: #086bad;
+  --cyanSecondary: #36b5d1;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 0.75rem;
+  padding: 12px 24px;
+  background-image: linear-gradient(
+    to right,
+    var(--blueSecondary),
+    var(--bluePrimary),
+    var(--cyanSecondary),
+    var(--cyanPrimary)
+  );
+
+  background-size: 300%;
+  background-position: left;
+  text-decoration: none;
+  transition: 0.5s background-position ease-in-out;
+  &:hover {
+    background-position: right;
+  }
+}

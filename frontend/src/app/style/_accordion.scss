@@ -1,0 +1,10 @@
+.accordian_container {
+  .ac_text {
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .ac_input:checked ~ .ac_text {
+    opacity: 1;
+    height: auto;
+  }
+}

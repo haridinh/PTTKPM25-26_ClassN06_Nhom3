@@ -181,7 +181,7 @@ if (is_post_request()) {
             } catch (\Throwable $th) {
                 echo json_encode([
                     'data'    => [],
-                    'status'  => false,
+                    'status'  => true,
                     'message' => 'Admin creation failed. Please try again.',
                 ]);
             }

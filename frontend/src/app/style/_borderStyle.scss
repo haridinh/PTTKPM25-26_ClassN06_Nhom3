@@ -1,0 +1,236 @@
+.bg_conic_gradient {
+  background: linear-gradient(
+    30deg,
+    #002471,
+    #0db6d4,
+    #26ddff,
+    #1549ff,
+    #0194fe,
+    var(--bgTransparent),
+    var(--bgTransparent),
+    var(--bgTransparent),
+    var(--bgTransparent),
+    var(--bgTransparent),
+    #002471,
+    #0db6d4,
+    #26ddff,
+    #0194fe,
+    #1549ff
+  );
+}
+.bg_conic_gradient_sm {
+  background: linear-gradient(
+    55deg,
+    #022f8f,
+    #0db6d4,
+    #26ddff,
+    #1549ff,
+    #0194fe,
+    var(--bgTransparent),
+    var(--bgTransparent),
+    var(--bgTransparent),
+    var(--bgTransparent),
+    var(--bgTransparent),
+    #022f8f,
+    #0db6d4,
+    #26ddff,
+    #0194fe,
+    #1549ff
+  );
+}
+.bg_conic_gradient_45 {
+  background: linear-gradient(
+    45deg,
+    #022f8f,
+    #0db6d4,
+    #26ddff,
+    #1549ff,
+    #0194fe,
+    var(--bgTransparent),
+    var(--bgTransparent),
+    var(--bgTransparent),
+    var(--bgTransparent),
+    var(--bgTransparent),
+    #022f8f,
+    #0db6d4,
+    #26ddff,
+    #0194fe,
+    #1549ff
+  );
+}
+.bg_conic_gradient_60 {
+  background: linear-gradient(
+    60deg,
+    #022f8f,
+    #0db6d4,
+    #26ddff,
+    #1549ff,
+    #0194fe,
+    var(--bgTransparent),
+    var(--bgTransparent),
+    var(--bgTransparent),
+    var(--bgTransparent),
+    var(--bgTransparent),
+    #022f8f,
+    #0db6d4,
+    #26ddff,
+    #0194fe,
+    #1549ff
+  );
+}
+/* input border style */
+
+.border_style_one {
+  padding: 20px;
+  border: 2px solid;
+  color: var(--white);
+  background-color: transparent;
+  border-image: linear-gradient(
+    10deg,
+    #0db6d4,
+    #26ddff,
+    #1549ff,
+    #0194fe,
+    var(--bgTransparent),
+    var(--bgTransparent),
+    var(--bgTransparent),
+    var(--bgTransparent),
+    #0db6d4,
+    #26ddff,
+    #0194fe,
+    #1549ff
+  );
+  border-image-slice: 1;
+}
+.border_style_six {
+  padding: 20px;
+  border: 2px solid;
+  color: var(--white);
+  background-color: transparent;
+  border-image: linear-gradient(
+    45deg,
+    #1549ff,
+    #0194fe,
+    #0db6d4,
+    #022f8f,
+    var(--bgTransparent),
+    var(--bgTransparent),
+    var(--bgTransparent),
+    var(--bgTransparent),
+    #022f8f,
+    #0194fe,
+    #1549ff,
+    #0db6d4
+  );
+  border-image-slice: 1;
+}
+
+.border_style_five {
+  padding: 20px;
+  border: 2px solid;
+  color: var(--white);
+  background-color: transparent;
+  border-image: linear-gradient(
+    30deg,
+    #0db6d4,
+    #26ddff,
+    #1549ff,
+    #0194fe,
+    var(--bgTransparent),
+    var(--bgTransparent),
+    var(--bgTransparent),
+    var(--bgTransparent),
+    var(--bgTransparent),
+    #0db6d4,
+    #26ddff,
+    #0194fe,
+    #1549ff
+  );
+  border-image-slice: 1;
+}
+.border_style_two {
+  padding: 10px;
+  border: 2px solid transparent;
+  color: var(--white);
+  background-color: transparent;
+  border-image: linear-gradient(
+    90deg,
+    rgba(16, 162, 220, 0.471),
+    rgba(220, 62, 234, 0.4)
+  );
+  border-image-slice: 1;
+}
+.border_style_four {
+  padding: 10px;
+  border: 2px solid #031f80;
+  color: var(--white);
+  background-color: transparent;
+  transition: border-image 0.3s ease-in-out;
+  &:hover {
+    border-image: linear-gradient(
+      90deg,
+      rgba(16, 162, 220, 0.471),
+      rgba(220, 62, 234, 0.4)
+    );
+    border-image-slice: 1;
+  }
+}
+.border_style_three {
+  /* width: 300px;
+    height: 80px; */
+  border: double 0.5em transparent;
+  border-radius: 30px;
+  background-image: linear-gradient(var(--dardBlue2), var(--dardBlue2)),
+    linear-gradient(to right, green, gold);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  color: white;
+}
+
+.box {
+  border: 2px solid #0000;
+  border-radius: 10px;
+  background: linear-gradient(var(--dardBlue2), var(--dardBlue2)) padding-box,
+    linear-gradient(
+        10deg,
+        #0db6d4,
+        #26ddff,
+        #1549ff,
+        #0194fe,
+        var(--dardBlue2),
+        var(--dardBlue2),
+        var(--dardBlue2),
+        var(--dardBlue2),
+        #0db6d4,
+        #26ddff,
+        #0194fe,
+        #1549ff
+      )
+      border-box;
+}
+.box_style_two {
+  border: 2px solid #0000;
+  transition: linear-gradient 0.2s ease-in-out;
+  border-radius: 10px;
+
+  &:hover {
+    border: 2px solid #0000;
+    background: linear-gradient(var(--dardBlue2), var(--dardBlue2)) padding-box,
+      linear-gradient(
+          35deg,
+          #0db6d4,
+          #26ddff,
+          #1549ff,
+          #0194fe,
+          var(--dardBlue2),
+          var(--dardBlue2),
+          var(--dardBlue2),
+          var(--dardBlue2),
+          #0db6d4,
+          #26ddff,
+          #0194fe,
+          #1549ff
+        )
+        border-box;
+  }
+}

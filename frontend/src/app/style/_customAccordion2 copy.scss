@@ -1,0 +1,60 @@
+.according_style_two {
+  summary {
+    header > svg {
+      transform: scale(1) rotate(0deg);
+      transition: 0.5s;
+    }
+  }
+
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details[open] {
+    transition: 0.5s;
+    transform-origin: center center;
+    transform-box: fill-box;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    summary {
+      header > div svg {
+        transform: scale(1) rotate(45deg);
+        transition: 0.5s;
+      }
+
+      header > h1 {
+        font-weight: bold;
+      }
+
+      &::marker {
+        display: none;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .content {
+    > p {
+      margin: 1rem 0;
+    }
+  }
+
+  details[open] summary ~ * {
+    animation: sweep 0.5s ease-in-out;
+  }
+
+  // better for performance reasons
+  @keyframes sweep {
+    0% {
+      opacity: 0;
+      transform: translateX(-2.5rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
