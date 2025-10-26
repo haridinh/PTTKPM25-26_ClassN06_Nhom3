@@ -1,0 +1,873 @@
+═══════════════════════════════════════════════════════════════════════════════
+                    BIỂU ĐỒ USE CASE - HỆ THỐNG TÀI CHÍNH ĐA NĂNG
+═══════════════════════════════════════════════════════════════════════════════
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                          ACTORS (CÁC ĐỐI TƯỢNG)                             │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+1. CUSTOMER (Khách hàng/Người dùng)
+2. ADMIN (Quản trị viên)
+3. MERCHANT (Thương nhân - Là Customer đã được phê duyệt)
+4. PAYMENT GATEWAY (Cổng thanh toán bên thứ 3)
+5. SYSTEM (Hệ thống tự động)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│              USE CASES CỦA ACTOR: CUSTOMER (Khách hàng)                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ A. QUẢN LÝ TÀI KHOẢN                                                        ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-C-01: Đăng ký tài khoản (Registration)
+  - Nhập thông tin cá nhân (họ tên, email, username, số điện thoại)
+  - Nhập mật khẩu
+  - Nhập mã giới thiệu (referral code - tùy chọn)
+  - Xác minh email
+  - Kích hoạt tài khoản
+
+UC-C-02: Đăng nhập (Login)
+  - Đăng nhập bằng email/username và mật khẩu
+  - Đăng nhập bằng Google 2FA (nếu bật)
+  - Xác thực OTP (nếu bật)
+
+UC-C-03: Quản lý hồ sơ cá nhân (Profile Management)
+  - Xem thông tin cá nhân
+  - Cập nhật thông tin cá nhân (họ tên, email, số điện thoại, địa chỉ)
+  - Cập nhật ảnh đại diện (avatar)
+  - Đổi mật khẩu
+  - Cài đặt ngôn ngữ và căn chỉnh giao diện (site align)
+
+UC-C-04: Xác minh tài khoản (KYC Verification)
+  - Gửi thông tin KYC (Know Your Customer)
+  - Tải lên tài liệu xác minh
+  - Xem trạng thái xác minh
+  - Đợi Admin phê duyệt
+
+UC-C-05: Xác thực hai yếu tố (Two Factor Authentication)
+  - Bật/tắt Google 2FA
+  - Quét mã QR
+  - Nhập mã xác thực
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ B. DASHBOARD & THỐNG KÊ                                                      ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-C-06: Xem Dashboard (View Dashboard)
+  - Xem tổng số dư ví
+  - Xem biểu đồ giao dịch
+  - Xem biểu đồ nạp tiền
+  - Xem biểu đồ đầu tư
+  - Xem doanh thu nhóm (team turnover)
+  - Xem doanh thu người giới thiệu (sponsor turnover)
+  - Xem biểu đồ thanh toán (payout)
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ C. TÀI CHÍNH (FINANCE)                                                       ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-C-07: Nạp tiền (Deposit)
+  - Chọn phương thức nạp (Stripe, CoinPayment)
+  - Nhập số tiền
+  - Xác nhận giao dịch
+  - Xử lý thanh toán
+  - Nhận thông báo thành công
+
+UC-C-08: Rút tiền (Withdraw)
+  - Chọn tài khoản rút tiền
+  - Nhập số tiền
+  - Gửi yêu cầu rút tiền
+  - Đợi Admin xử lý
+  - Nhận thông báo trạng thái
+
+UC-C-09: Thêm tài khoản rút tiền (Add Withdrawal Account)
+  - Thêm thông tin tài khoản ngân hàng
+  - Thêm thông tin ví crypto
+  - Xóa tài khoản rút tiền
+
+UC-C-10: Chuyển khoản (Transfer)
+  - Chọn người nhận
+  - Nhập số tiền
+  - Xác nhận chuyển khoản
+  - Xem lịch sử chuyển khoản
+
+UC-C-11: Xem giao dịch (View Transactions)
+  - Xem lịch sử nạp tiền
+  - Xem lịch sử rút tiền
+  - Xem lịch sử chuyển khoản
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ D. ĐẦU TƯ (INVESTMENT/PACKAGE)                                               ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-C-12: Xem gói đầu tư (View Investment Packages)
+  - Xem danh sách gói đầu tư
+  - Xem chi tiết gói (lãi suất, thời gian, số tiền tối thiểu)
+  - Xem lịch sử gói (time list)
+
+UC-C-13: Mua gói đầu tư (Purchase Investment Package)
+  - Chọn gói đầu tư
+  - Nhập số tiền đầu tư
+  - Xác nhận đầu tư
+  - Xem trạng thái đầu tư
+
+UC-C-14: Quản lý gói đầu tư đã mua (Manage Purchased Packages)
+  - Xem gói đầu tư đã mua
+  - Xem chi tiết từng gói
+  - Xem lịch sử nhận lãi
+
+UC-C-15: Xem tiền lãi (View Earnings/Interest)
+  - Xem tiền lãi đầu tư
+  - Xem tiền lãi tương lai
+  - Xem hoàn vốn
+
+UC-C-16: Xem hoa hồng giới thiệu (View Referral Commission)
+  - Xem hoa hồng từ người được giới thiệu
+  - Xem lịch sử nhận hoa hồng
+
+UC-C-17: Xem thưởng nhóm (View Team Bonus)
+  - Xem doanh thu nhóm
+  - Xem thế hệ trong nhóm (my generation)
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ E. B2X LOAN (CHO VAY)                                                        ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-C-18: Xem gói vay (View Loan Packages)
+  - Xem gói vay có sẵn
+  - Xem chi tiết từng gói
+
+UC-C-19: Tính toán khoản vay (Loan Calculator)
+  - Nhập số tiền muốn vay
+  - Nhập thời gian
+  - Xem số tiền phải trả
+
+UC-C-20: Đăng ký vay (Apply for Loan)
+  - Chọn gói vay
+  - Điền thông tin
+  - Gửi đơn vay
+  - Đợi Admin phê duyệt
+
+UC-C-21: Quản lý khoản vay (Manage Loans)
+  - Xem danh sách khoản vay
+  - Xem chi tiết khoản vay
+  - Xem lịch trả nợ
+
+UC-C-22: Rút tiền từ khoản vay (Withdraw from Loan)
+  - Gửi yêu cầu rút tiền từ khoản vay
+  - Đợi Admin phê duyệt
+
+UC-C-23: Trả nợ (Repayment)
+  - Xem khoản phải trả
+  - Chọn phương thức thanh toán
+  - Thực hiện thanh toán
+  - Xem lịch sử trả nợ
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ F. STAKING                                                                    ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-C-24: Xem gói Staking (View Stake Plans)
+  - Xem danh sách gói staking
+  - Xem chi tiết từng gói
+
+UC-C-25: Đăng ký Staking (Subscribe to Stake)
+  - Chọn gói staking
+  - Nạp tiền vào staking
+  - Xem trạng thái
+
+UC-C-26: Quản lý Subscription
+  - Xem danh sách subscription
+  - Xem chi tiết subscription
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ G. MERCHANT (Nếu là Merchant)                                                ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-C-27: Xem Dashboard Merchant (View Merchant Dashboard)
+  - Xem tổng quan hoạt động merchant
+
+UC-C-28: Gửi yêu cầu tài khoản Merchant (Request Merchant Account)
+  - Điền thông tin
+  - Gửi yêu cầu
+  - Đợi Admin phê duyệt
+
+UC-C-29: Quản lý Khách hàng của Merchant (Manage Merchant Customers)
+  - Xem danh sách khách hàng
+  - Thêm khách hàng
+  - Cập nhật thông tin khách hàng
+  - Xóa khách hàng
+
+UC-C-30: Tạo URL Thanh toán (Create Payment URL)
+  - Tạo link thanh toán
+  - Cài đặt thông tin thanh toán
+  - Xem link thanh toán
+
+UC-C-31: Xem Giao dịch Merchant (View Merchant Transactions)
+  - Xem danh sách giao dịch
+  - Xem chi tiết từng giao dịch
+
+UC-C-32: Rút tiền Merchant (Merchant Withdraw)
+  - Tạo yêu cầu rút tiền
+  - Đợi Admin phê duyệt
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ H. QUICK EXCHANGE                                                             ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-C-33: Sử dụng Quick Exchange (Use Quick Exchange)
+  - Chọn đồng xu muốn đổi
+  - Nhập số lượng
+  - Nhận đồng xu sau khi đổi
+  - Xem lịch sử giao dịch
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ I. HỖ TRỢ                                                                     ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-C-34: Liên hệ Hỗ trợ (Contact Support)
+  - Gửi tin nhắn hỗ trợ
+  - Xem phản hồi
+
+UC-C-35: Quản lý Ví (Wallet Management)
+  - Xem số dư các loại ví
+  - Xem lịch sử giao dịch ví
+
+═══════════════════════════════════════════════════════════════════════════════
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│              USE CASES CỦA ACTOR: ADMIN (Quản trị viên)                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ A. DASHBOARD                                                                  ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-A-01: Xem Dashboard Admin (Admin Dashboard)
+  - Xem tổng quan hệ thống
+  - Xem biểu đồ khách hàng
+  - Xem biểu đồ giao dịch
+  - Xem biểu đồ phí
+  - Xem biểu đồ nạp tiền
+  - Xem biểu đồ đầu tư
+  - Xem lịch sử giao dịch
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ B. QUẢN LÝ NGƯỜI DÙNG                                                        ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-A-02: Quản lý Khách hàng (Manage Customers)
+  - Xem danh sách khách hàng
+  - Xem chi tiết khách hàng
+  - Thêm khách hàng
+  - Cập nhật thông tin khách hàng
+  - Xóa khách hàng
+  - Thay đổi trạng thái khách hàng
+
+UC-A-03: Quản lý Users (Người dùng Admin)
+  - Xem danh sách users
+  - Thêm user
+  - Cập nhật user
+  - Xóa user
+  - Gán vai trò (roles)
+
+UC-A-04: Xác minh KYC (Verify Customer KYC)
+  - Xem danh sách yêu cầu xác minh
+  - Xem tài liệu đã tải lên
+  - Duyệt hoặc từ chối xác minh
+  - Xem khách hàng đã xác minh
+  - Xem khách hàng bị hủy xác minh
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ C. QUẢN LÝ TÀI CHÍNH (FINANCE)                                                ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-A-05: Quản lý Nạp tiền (Manage Deposits)
+  - Xem danh sách nạp tiền
+  - Xem nạp tiền đang chờ xử lý
+  - Phê duyệt nạp tiền
+  - Từ chối nạp tiền
+  - Thêm tín dụng thủ công (add credit)
+
+UC-A-06: Quản lý Rút tiền (Manage Withdraws)
+  - Xem danh sách rút tiền
+  - Xem rút tiền đang chờ xử lý
+  - Phê duyệt rút tiền
+  - Từ chối rút tiền
+  - Tạo PDF báo cáo
+
+UC-A-07: Quản lý Chuyển khoản (Manage Transfers)
+  - Xem danh sách chuyển khoản
+  - Xem chi tiết chuyển khoản
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ D. QUẢN LÝ ĐẦU TƯ (PACKAGE)                                                   ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-A-08: Quản lý Gói Đầu tư (Manage Investment Packages)
+  - Tạo gói đầu tư mới
+  - Xem danh sách gói
+  - Cập nhật gói
+  - Xóa gói
+
+UC-A-09: Quản lý Thời gian Gói (Manage Plan Time)
+  - Tạo khoảng thời gian gói
+  - Xem danh sách
+  - Cập nhật
+  - Xóa
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ E. QUẢN LÝ B2X LOAN                                                           ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-A-10: Quản lý Gói Vay (Manage B2X Loan Packages)
+  - Tạo gói vay mới
+  - Xem danh sách gói vay
+  - Cập nhật gói
+  - Xóa gói
+
+UC-A-11: Quản lý Khoản Vay (Manage Loans)
+  - Xem khoản vay đang chờ
+  - Phê duyệt hoặc từ chối khoản vay
+  - Xem tổng quan khoản vay (loan summary)
+  - Xem khoản vay đã đóng (closed loans)
+
+UC-A-12: Quản lý Rút tiền từ Vay (Manage Loan Withdrawals)
+  - Xem yêu cầu rút tiền
+  - Phê duyệt hoặc từ chối
+
+UC-A-13: Quản lý Trả nợ (Manage Repayments)
+  - Xem lịch trả nợ tháng này
+  - Xem tất cả lịch trả nợ
+  - Tạo lịch trả nợ
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ F. QUẢN LÝ MERCHANT                                                           ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-A-14: Quản lý Đơn Merchant (Manage Merchant Applications)
+  - Xem danh sách yêu cầu tài khoản merchant
+  - Phê duyệt hoặc từ chối
+  - Xem merchant đã được xác nhận
+
+UC-A-15: Quản lý Tài khoản Merchant (Manage Merchant Accounts)
+  - Xem danh sách tài khoản merchant
+  - Xem chi tiết
+  - Cập nhật trạng thái
+
+UC-A-16: Quản lý Giao dịch Merchant (Manage Merchant Transactions)
+  - Xem danh sách giao dịch
+  - Xem chi tiết từng giao dịch
+  - Xem số lượng giao dịch theo trạng thái
+
+UC-A-17: Quản lý Phí Merchant (Manage Merchant Fees)
+  - Cài đặt phí giao dịch merchant
+  - Cập nhật phí
+
+UC-A-18: Quản lý Rút tiền Merchant (Manage Merchant Withdrawals)
+  - Xem yêu cầu rút tiền đang chờ
+  - Phê duyệt rút tiền
+  - Xem lịch sử rút tiền đã xác nhận
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ G. QUẢN LÝ STAKING                                                            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-A-19: Quản lý Stake Plans (Manage Stake Plans)
+  - Tạo gói staking mới
+  - Xem danh sách
+  - Cập nhật
+  - Xóa
+
+UC-A-20: Quản lý Subscription (Manage Subscriptions)
+  - Xem danh sách subscription
+  - Xem chi tiết
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ H. QUẢN LÝ QUICK EXCHANGE                                                      ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-A-21: Quản lý Quick Exchange (Manage Quick Exchange)
+  - Quản lý đồng xu được hỗ trợ
+  - Quản lý đồng xu cơ bản (base currency)
+  - Xem yêu cầu giao dịch
+  - Cập nhật trạng thái giao dịch
+  - Xem lịch sử giao dịch
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ I. BÁO CÁO (REPORTS)                                                          ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-A-22: Xem Báo cáo Giao dịch (Transaction Reports)
+  - Xem logs giao dịch
+  - Lọc và xuất báo cáo
+
+UC-A-23: Xem Báo cáo Đầu tư (Investment Reports)
+  - Xem lịch sử đầu tư
+  - Thống kê đầu tư
+
+UC-A-24: Xem Báo cáo Phí (Fees Reports)
+  - Xem lịch sử phí
+  - Thống kê phí
+
+UC-A-25: Xem Lịch sử Đăng nhập (Login History)
+  - Xem lịch sử đăng nhập của người dùng
+  - Lọc theo user, thời gian
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ J. QUẢN LÝ HÀNH CHÍNH - VAI TRÒ & QUYỀN                                      ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-A-26: Quản lý Vai trò (Manage Roles)
+  - Tạo vai trò mới
+  - Xem danh sách vai trò
+  - Cập nhật vai trò
+  - Xóa vai trò
+
+UC-A-27: Quản lý Users & Roles
+  - Gán vai trò cho user
+  - Xóa vai trò khỏi user
+  - Tạo user mới với vai trò
+
+UC-A-28: Quản lý Quyền (Manage Permissions)
+  - Xem danh sách quyền
+  - Gán quyền cho vai trò
+  - Quản lý nhóm quyền
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ K. QUẢN LÝ THANH TOÁN & TIỀN TỆ                                               ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-A-29: Quản lý Cổng Thanh toán (Manage Payment Gateways)
+  - Thêm cổng thanh toán mới (Stripe, CoinPayment, etc.)
+  - Xem danh sách
+  - Cập nhật thông tin
+  - Xóa cổng
+
+UC-A-30: Quản lý Tiền tệ được Chấp nhận (Manage Accept Currencies)
+  - Thêm đồng tiền mới
+  - Xem danh sách
+  - Cập nhật
+  - Xóa
+
+UC-A-31: Quản lý Tiền tệ Fiat (Manage Fiat Currencies)
+  - Xem danh sách tiền fiat
+  - Cập nhật tiền tệ
+  - Xóa
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ L. CÀI ĐẶT HỆ THỐNG                                                            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-A-32: Cài đặt Chung (General Settings)
+  - Cài đặt thông tin ứng dụng
+  - Cài đặt logo, favicon
+  - Cài đặt timezone
+  - Cài đặt số điện thoại, email liên hệ
+
+UC-A-33: Cài đặt Phí (Fee Settings)
+  - Tạo cài đặt phí mới
+  - Xem danh sách phí
+  - Cập nhật phí
+  - Xóa cài đặt phí
+
+UC-A-34: Cài đặt Hoa hồng (Commission Settings)
+  - Cài đặt hoa hồng giới thiệu
+  - Lưu cấu hình
+
+UC-A-35: Cài đặt API bên ngoài (External API Settings)
+  - Cài đặt API bên thứ ba
+  - Cập nhật API
+
+UC-A-36: Cài đặt Email (Email Settings)
+  - Cài đặt SMTP
+  - Cập nhật cấu hình email
+  - Gửi email test
+
+UC-A-37: Cài đặt SMS (SMS Settings)
+  - Cài đặt Twilio hoặc SMS gateway
+  - Cập nhật cấu hình
+  - Gửi SMS test
+
+UC-A-38: Cài đặt Thông báo (Notification Settings)
+  - Bật/tắt thông báo email
+  - Bật/tắt thông báo SMS
+  - Cập nhật nhóm thông báo
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ M. QUẢN LÝ NGÔN NGỮ                                                          ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-A-39: Quản lý Ngôn ngữ (Manage Languages)
+  - Thêm ngôn ngữ mới
+  - Xem danh sách
+  - Cập nhật
+  - Xóa
+
+UC-A-40: Quản lý Nội dung Ngôn ngữ (Manage Language Content)
+  - Xem danh sách từ khóa ngôn ngữ
+  - Thêm từ khóa mới
+  - Cập nhật giá trị
+  - Xóa
+  - Chuyển đổi ngôn ngữ
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ N. SAO LƯU & KHÔI PHỤC                                                         ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-A-41: Quản lý Sao lưu (Manage Backups)
+  - Xem danh sách backup
+  - Tạo backup mới
+  - Tải xuống backup
+  - Xóa backup
+  - Xóa tất cả backup
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ O. CMS - QUẢN LÝ NỘI DUNG                                                      ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-A-42: Quản lý Menu (Manage Menus)
+  - Xem menu
+  - Cập nhật menu
+  - Quản lý nội dung đa ngôn ngữ
+
+UC-A-43: Quản lý Slider Trang chủ (Manage Home Slider)
+  - Thêm slider mới
+  - Xem danh sách slider
+  - Cập nhật
+  - Xóa
+
+UC-A-44: Quản lý Icon Mạng xã hội (Manage Social Icons)
+  - Thêm icon
+  - Xem danh sách
+  - Cập nhật
+  - Xóa
+
+UC-A-45: Quản lý Về chúng tôi (Manage About Us)
+  - Cập nhật nội dung
+  - Quản lý banner
+  - Quản lý đa ngôn ngữ
+
+UC-A-46: Quản lý Gói Đầu tư (CMS)
+  - Cập nhật banner
+  - Cập nhật header
+
+UC-A-47: Quản lý Join Us Today
+  - Cập nhật nội dung
+  - Quản lý đa ngôn ngữ
+
+UC-A-48: Quản lý Merchant (CMS)
+  - Quản lý nội dung merchant
+  - Quản lý title
+  - Quản lý top banner
+  - Xóa nội dung
+
+UC-A-49: Quản lý Quick Exchange (CMS)
+  - Cập nhật nội dung
+  - Quản lý đa ngôn ngữ
+
+UC-A-50: Quản lý Background Images
+  - Xem danh sách
+  - Cập nhật
+
+UC-A-51: Quản lý "Tại sao chọn chúng tôi" (Why Choose Us)
+  - Quản lý content
+  - Quản lý header
+
+UC-A-52: Quản lý Khách hàng Hài lòng (Satisfied Customers)
+  - Quản lý content
+  - Quản lý header
+
+UC-A-53: Quản lý FAQ (Frequently Asked Questions)
+  - Thêm câu hỏi/thông tin FAQ
+  - Xem danh sách
+  - Cập nhật
+  - Xóa
+
+UC-A-54: Quản lý Blog
+  - Thêm blog mới
+  - Xem danh sách
+  - Cập nhật
+  - Xóa
+  - Quản lý top banner
+  - Quản lý details top banner
+
+UC-A-55: Quản lý Liên hệ
+  - Cập nhật top banner
+  - Quản lý địa chỉ liên hệ
+  - Thêm địa chỉ
+  - Cập nhật
+  - Xóa
+
+UC-A-56: Quản lý Payment We Accept
+  - Cập nhật header
+  - Quản lý đa ngôn ngữ
+
+UC-A-57: Quản lý Stake (CMS)
+  - Xem nội dung
+  - Cập nhật banner
+
+UC-A-58: Quản lý B2X (CMS)
+  - Quản lý loan
+  - Quản lý loan banner
+  - Quản lý calculator header
+  - Quản lý loan details header
+  - Quản lý loan details content
+
+UC-A-59: Quản lý Top Investor (Nhà đầu tư hàng đầu)
+  - Xem nội dung
+  - Quản lý banner
+  - Quản lý top banner
+  - Quản lý header
+
+UC-A-60: Quản lý Our Service
+  - Thêm dịch vụ
+  - Xem danh sách
+  - Cập nhật
+  - Xóa
+  - Quản lý header
+  - Quản lý top banner
+
+UC-A-61: Quản lý Our Rate
+  - Thêm nội dung
+  - Xem danh sách
+  - Cập nhật
+  - Xóa
+  - Quản lý header
+
+UC-A-62: Quản lý Team Member
+  - Thêm thành viên
+  - Xem danh sách
+  - Cập nhật
+  - Xóa
+  - Quản lý banner
+  - Quản lý header
+
+UC-A-63: Quản lý Our Difference
+  - Thêm nội dung
+  - Xem danh sách
+  - Cập nhật
+  - Xóa
+  - Quản lý header
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ P. HỖ TRỢ                                                                      ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+UC-A-64: Quản lý Hỗ trợ (Manage Support)
+  - Xem yêu cầu hỗ trợ
+  - Trả lời yêu cầu
+  - Xem lịch sử
+  - Tìm kiếm
+
+═══════════════════════════════════════════════════════════════════════════════
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│              USE CASES CỦA ACTOR: MERCHANT (Thương nhân)                      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+*LƯU Ý: Merchant là Customer đã có tài khoản merchant được phê duyệt*
+
+Các use case chính của Merchant đã được liệt kê trong phần Customer (Mục G):
+  - UC-C-27 đến UC-C-32 (xem phía trên)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│              USE CASES CỦA ACTOR: SYSTEM (Hệ thống tự động)                   │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+UC-S-01: Xử lý Thanh toán tự động
+  - Xử lý callback từ Stripe
+  - Xử lý callback từ CoinPayment (IPN)
+  - Cập nhật số dư ví
+
+UC-S-02: Tính toán Lãi suất
+  - Tính lãi cho gói đầu tư theo lịch
+  - Tính lãi cho staking
+  - Cập nhật số dư tự động
+
+UC-S-03: Tính toán Hoa hồng
+  - Tính hoa hồng giới thiệu
+  - Tính thưởng nhóm
+  - Cập nhật ví
+
+UC-S-04: Gửi Thông báo
+  - Gửi email thông báo
+  - Gửi SMS thông báo (nếu bật)
+  - Gửi thông báo trong hệ thống
+
+UC-S-05: Sao lưu tự động
+  - Tạo backup theo lịch trình
+  - Lưu trữ backup
+
+UC-S-06: Cập nhật Giá tiền tệ
+  - Cập nhật giá tiền tệ crypto tự động
+  - Lưu vào database
+
+UC-S-07: Kiểm tra Trạng thái Giao dịch
+  - Kiểm tra giao dịch đang chờ
+  - Cập nhật trạng thái tự động
+
+UC-S-08: Chạy Cronjob
+  - Chạy các tác vụ định kỳ
+  - Tạo lịch trình làm việc
+
+═══════════════════════════════════════════════════════════════════════════════
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                    MỐI QUAN HỆ GIỮA CÁC ACTOR                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+1. Customer ↔ Admin
+   - Customer gửi yêu cầu KYC → Admin duyệt
+   - Customer nạp/rút tiền → Admin xử lý
+   - Customer đăng ký vay → Admin phê duyệt
+   - Customer gửi yêu cầu merchant → Admin duyệt
+
+2. Merchant ↔ Customers của Merchant
+   - Merchant tạo payment URL
+   - Customers của merchant thực hiện thanh toán
+   - Merchant xem giao dịch
+
+3. Tất cả ↔ Payment Gateway
+   - Hệ thống gọi API cổng thanh toán
+   - Nhận callback từ cổng thanh toán
+
+4. System ↔ Tất cả
+   - System xử lý tự động cho tất cả các actor
+   - System gửi thông báo
+
+═══════════════════════════════════════════════════════════════════════════════
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                 CÁC LUỒNG NGHIỆP VỤ CHÍNH                                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+LUỒNG 1: Khách hàng mới đăng ký và đầu tư
+  1. UC-C-01: Đăng ký tài khoản
+  2. Xác minh email
+  3. UC-C-02: Đăng nhập
+  4. UC-C-07: Nạp tiền vào ví
+  5. UC-C-12: Xem các gói đầu tư
+  6. UC-C-13: Chọn và mua gói đầu tư
+  7. UC-C-15: Theo dõi lãi suất nhận được
+
+LUỒNG 2: Khách hàng vay tiền
+  1. UC-C-18: Xem gói vay
+  2. UC-C-19: Tính toán khoản vay
+  3. UC-C-20: Đăng ký vay
+  4. Đợi UC-A-11: Admin phê duyệt
+  5. UC-C-22: Rút tiền từ khoản vay
+  6. UC-C-23: Trả nợ theo lịch
+
+LUỒNG 3: Khách hàng trở thành Merchant
+  1. UC-C-28: Gửi yêu cầu tài khoản merchant
+  2. Đợi UC-A-14: Admin phê duyệt
+  3. UC-C-30: Tạo URL thanh toán
+  4. Chia sẻ link cho khách hàng của mình
+  5. UC-C-31: Theo dõi giao dịch
+  6. UC-C-32: Rút tiền merchant
+
+LUỒNG 4: Quản lý Admin
+  1. UC-A-01: Đăng nhập admin
+  2. UC-A-01: Xem dashboard
+  3. UC-A-02: Xử lý các yêu cầu của khách hàng
+  4. UC-A-05, UC-A-06: Quản lý giao dịch
+  5. UC-A-42 đến UC-A-63: Quản lý CMS
+  6. UC-A-22 đến UC-A-24: Xem báo cáo
+
+═══════════════════════════════════════════════════════════════════════════════
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                    TÓM TẮT SỐ LƯỢNG USE CASE                                 │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  ┌─────────────────┬──────────────┬─────────────────────────────┐
+  │ ACTOR           │ SỐ USE CASE  │ MÔ TẢ                       │
+  ├─────────────────┼──────────────┼─────────────────────────────┤
+  │ Customer        │ 35           │ Quản lý tài khoản, đầu tư,  │
+  │                 │              │ vay, merchant, v.v.          │
+  ├─────────────────┼──────────────┼─────────────────────────────┤
+  │ Admin           │ 64           │ Quản lý toàn bộ hệ thống    │
+  │                 │              │ và CMS                        │
+  ├─────────────────┼──────────────┼─────────────────────────────┤
+  │ Merchant        │ 6            │ Nằm trong Customer           │
+  │                 │              │ (đã được phê duyệt)           │
+  ├─────────────────┼──────────────┼─────────────────────────────┤
+  │ System          │ 8            │ Xử lý tự động               │
+  ├─────────────────┼──────────────┼─────────────────────────────┤
+  │ TỔNG CỘNG       │ 113          │ Use cases chính             │
+  └─────────────────┴──────────────┴─────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                    CÁC MODULE CHÍNH CỦA HỆ THỐNG                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+1. Package Module
+   - Quản lý gói đầu tư
+   - Customer mua gói đầu tư
+   - Admin quản lý gói
+
+2. Finance Module
+   - Quản lý tài chính (nạp, rút, chuyển)
+   - Customer: nạp/rút/chuyển tiền
+   - Admin: duyệt giao dịch
+
+3. B2xloan Module
+   - Quản lý vay tiêu dùng
+   - Customer: đăng ký vay, trả nợ
+   - Admin: duyệt vay, quản lý trả nợ
+
+4. Merchant Module
+   - Quản lý thương nhân
+   - Merchant: tạo payment URL, quản lý khách hàng
+   - Admin: duyệt merchant, quản lý giao dịch merchant
+
+5. Stake Module
+   - Quản lý staking và subscription
+   - Customer: đăng ký staking
+   - Admin: quản lý gói staking
+
+6. QuickExchange Module
+   - Quản lý trao đổi nhanh
+   - Customer: trao đổi tiền tệ
+   - Admin: quản lý cấu hình
+
+7. Reports Module
+   - Quản lý báo cáo
+   - Admin: xem báo cáo giao dịch, đầu tư, phí
+
+8. Support Module
+   - Quản lý hỗ trợ
+   - Customer: gửi yêu cầu hỗ trợ
+   - Admin: trả lời hỗ trợ
+
+9. CMS Module
+   - Quản lý nội dung website
+   - Admin: quản lý toàn bộ nội dung
+
+10. Customer Module
+    - Quản lý khách hàng
+    - Admin: quản lý thông tin khách hàng
+
+═══════════════════════════════════════════════════════════════════════════════
+
+LƯU Ý: Đây là hệ thống tài chính đa năng với các chức năng:
+- Quản lý đầu tư và gói đầu tư (Package)
+- Cho vay tiêu dùng (B2x Loan)
+- Hệ thống người bán/Merchant
+- Staking và Subscription
+- Quick Exchange (Trao đổi nhanh)
+- Finance (Nạp rút, chuyển khoản)
+- Hệ thống báo cáo và hỗ trợ
+- CMS (Quản lý nội dung website)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+
