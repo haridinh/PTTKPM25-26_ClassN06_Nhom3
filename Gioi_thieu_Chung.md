@@ -339,6 +339,6 @@ Send email notification
 - ✅ User experience tuyệt vời
 
 **Phiên bản**: 1.0  
-**Ngày**: 2024  
+**Ngày**: 2025  
 **Team**: ClassN06_Nhom3
 
